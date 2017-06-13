@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>PhotoDataManager.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>PhotoViewer.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +28,16 @@
 			<true/>
 		</dict>
 		<key>71AFE01A1EF08ECD00C5BB26</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>71AFE0311EF08EF100C5BB26</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>71AFE0391EF08EF200C5BB26</key>
 		<dict>
 			<key>primary</key>
 			<true/>

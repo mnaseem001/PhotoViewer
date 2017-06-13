@@ -14,6 +14,11 @@
 		71AFE00A1EF08ECC00C5BB26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71AFE0081EF08ECC00C5BB26 /* LaunchScreen.storyboard */; };
 		71AFE0151EF08ECD00C5BB26 /* PhotoViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFE0141EF08ECD00C5BB26 /* PhotoViewerTests.swift */; };
 		71AFE0201EF08ECD00C5BB26 /* PhotoViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFE01F1EF08ECD00C5BB26 /* PhotoViewerUITests.swift */; };
+		71AFE03B1EF08EF200C5BB26 /* PhotoDataManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71AFE0321EF08EF100C5BB26 /* PhotoDataManager.framework */; };
+		71AFE0421EF08EF200C5BB26 /* PhotoDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFE0411EF08EF200C5BB26 /* PhotoDataManagerTests.swift */; };
+		71AFE0441EF08EF200C5BB26 /* PhotoDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 71AFE0341EF08EF100C5BB26 /* PhotoDataManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		71AFE0471EF08EF200C5BB26 /* PhotoDataManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71AFE0321EF08EF100C5BB26 /* PhotoDataManager.framework */; };
+		71AFE0481EF08EF200C5BB26 /* PhotoDataManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 71AFE0321EF08EF100C5BB26 /* PhotoDataManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +36,42 @@
 			remoteGlobalIDString = 71AFDFFB1EF08ECC00C5BB26;
 			remoteInfo = PhotoViewer;
 		};
+		71AFE03C1EF08EF200C5BB26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71AFDFF41EF08ECC00C5BB26 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71AFE0311EF08EF100C5BB26;
+			remoteInfo = PhotoDataManager;
+		};
+		71AFE03E1EF08EF200C5BB26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71AFDFF41EF08ECC00C5BB26 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71AFDFFB1EF08ECC00C5BB26;
+			remoteInfo = PhotoViewer;
+		};
+		71AFE0451EF08EF200C5BB26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71AFDFF41EF08ECC00C5BB26 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71AFE0311EF08EF100C5BB26;
+			remoteInfo = PhotoDataManager;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		71AFE04C1EF08EF200C5BB26 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				71AFE0481EF08EF200C5BB26 /* PhotoDataManager.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		71AFDFFC1EF08ECC00C5BB26 /* PhotoViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +87,12 @@
 		71AFE01B1EF08ECD00C5BB26 /* PhotoViewerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoViewerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		71AFE01F1EF08ECD00C5BB26 /* PhotoViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerUITests.swift; sourceTree = "<group>"; };
 		71AFE0211EF08ECD00C5BB26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71AFE0321EF08EF100C5BB26 /* PhotoDataManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhotoDataManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71AFE0341EF08EF100C5BB26 /* PhotoDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoDataManager.h; sourceTree = "<group>"; };
+		71AFE0351EF08EF100C5BB26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71AFE03A1EF08EF200C5BB26 /* PhotoDataManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoDataManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		71AFE0411EF08EF200C5BB26 /* PhotoDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDataManagerTests.swift; sourceTree = "<group>"; };
+		71AFE0431EF08EF200C5BB26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71AFE0471EF08EF200C5BB26 /* PhotoDataManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +118,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		71AFE02E1EF08EF100C5BB26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71AFE0371EF08EF200C5BB26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71AFE03B1EF08EF200C5BB26 /* PhotoDataManager.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -80,6 +142,8 @@
 				71AFDFFE1EF08ECC00C5BB26 /* PhotoViewer */,
 				71AFE0131EF08ECD00C5BB26 /* PhotoViewerTests */,
 				71AFE01E1EF08ECD00C5BB26 /* PhotoViewerUITests */,
+				71AFE0331EF08EF100C5BB26 /* PhotoDataManager */,
+				71AFE0401EF08EF200C5BB26 /* PhotoDataManagerTests */,
 				71AFDFFD1EF08ECC00C5BB26 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +154,8 @@
 				71AFDFFC1EF08ECC00C5BB26 /* PhotoViewer.app */,
 				71AFE0101EF08ECD00C5BB26 /* PhotoViewerTests.xctest */,
 				71AFE01B1EF08ECD00C5BB26 /* PhotoViewerUITests.xctest */,
+				71AFE0321EF08EF100C5BB26 /* PhotoDataManager.framework */,
+				71AFE03A1EF08EF200C5BB26 /* PhotoDataManagerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,7 +191,36 @@
 			path = PhotoViewerUITests;
 			sourceTree = "<group>";
 		};
+		71AFE0331EF08EF100C5BB26 /* PhotoDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				71AFE0341EF08EF100C5BB26 /* PhotoDataManager.h */,
+				71AFE0351EF08EF100C5BB26 /* Info.plist */,
+			);
+			path = PhotoDataManager;
+			sourceTree = "<group>";
+		};
+		71AFE0401EF08EF200C5BB26 /* PhotoDataManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				71AFE0411EF08EF200C5BB26 /* PhotoDataManagerTests.swift */,
+				71AFE0431EF08EF200C5BB26 /* Info.plist */,
+			);
+			path = PhotoDataManagerTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		71AFE02F1EF08EF100C5BB26 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71AFE0441EF08EF200C5BB26 /* PhotoDataManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		71AFDFFB1EF08ECC00C5BB26 /* PhotoViewer */ = {
@@ -135,10 +230,12 @@
 				71AFDFF81EF08ECC00C5BB26 /* Sources */,
 				71AFDFF91EF08ECC00C5BB26 /* Frameworks */,
 				71AFDFFA1EF08ECC00C5BB26 /* Resources */,
+				71AFE04C1EF08EF200C5BB26 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				71AFE0461EF08EF200C5BB26 /* PBXTargetDependency */,
 			);
 			name = PhotoViewer;
 			productName = PhotoViewer;
@@ -181,6 +278,43 @@
 			productReference = 71AFE01B1EF08ECD00C5BB26 /* PhotoViewerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		71AFE0311EF08EF100C5BB26 /* PhotoDataManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71AFE0491EF08EF200C5BB26 /* Build configuration list for PBXNativeTarget "PhotoDataManager" */;
+			buildPhases = (
+				71AFE02D1EF08EF100C5BB26 /* Sources */,
+				71AFE02E1EF08EF100C5BB26 /* Frameworks */,
+				71AFE02F1EF08EF100C5BB26 /* Headers */,
+				71AFE0301EF08EF100C5BB26 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhotoDataManager;
+			productName = PhotoDataManager;
+			productReference = 71AFE0321EF08EF100C5BB26 /* PhotoDataManager.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		71AFE0391EF08EF200C5BB26 /* PhotoDataManagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71AFE04D1EF08EF200C5BB26 /* Build configuration list for PBXNativeTarget "PhotoDataManagerTests" */;
+			buildPhases = (
+				71AFE0361EF08EF200C5BB26 /* Sources */,
+				71AFE0371EF08EF200C5BB26 /* Frameworks */,
+				71AFE0381EF08EF200C5BB26 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				71AFE03D1EF08EF200C5BB26 /* PBXTargetDependency */,
+				71AFE03F1EF08EF200C5BB26 /* PBXTargetDependency */,
+			);
+			name = PhotoDataManagerTests;
+			productName = PhotoDataManagerTests;
+			productReference = 71AFE03A1EF08EF200C5BB26 /* PhotoDataManagerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -208,6 +342,17 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 71AFDFFB1EF08ECC00C5BB26;
 					};
+					71AFE0311EF08EF100C5BB26 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = WTHS82Y633;
+						ProvisioningStyle = Automatic;
+					};
+					71AFE0391EF08EF200C5BB26 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = WTHS82Y633;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 71AFDFFB1EF08ECC00C5BB26;
+					};
 				};
 			};
 			buildConfigurationList = 71AFDFF71EF08ECC00C5BB26 /* Build configuration list for PBXProject "PhotoViewer" */;
@@ -226,6 +371,8 @@
 				71AFDFFB1EF08ECC00C5BB26 /* PhotoViewer */,
 				71AFE00F1EF08ECD00C5BB26 /* PhotoViewerTests */,
 				71AFE01A1EF08ECD00C5BB26 /* PhotoViewerUITests */,
+				71AFE0311EF08EF100C5BB26 /* PhotoDataManager */,
+				71AFE0391EF08EF200C5BB26 /* PhotoDataManagerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -249,6 +396,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		71AFE0191EF08ECD00C5BB26 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71AFE0301EF08EF100C5BB26 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71AFE0381EF08EF200C5BB26 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -283,6 +444,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		71AFE02D1EF08EF100C5BB26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71AFE0361EF08EF200C5BB26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71AFE0421EF08EF200C5BB26 /* PhotoDataManagerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -295,6 +471,21 @@
 			isa = PBXTargetDependency;
 			target = 71AFDFFB1EF08ECC00C5BB26 /* PhotoViewer */;
 			targetProxy = 71AFE01C1EF08ECD00C5BB26 /* PBXContainerItemProxy */;
+		};
+		71AFE03D1EF08EF200C5BB26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71AFE0311EF08EF100C5BB26 /* PhotoDataManager */;
+			targetProxy = 71AFE03C1EF08EF200C5BB26 /* PBXContainerItemProxy */;
+		};
+		71AFE03F1EF08EF200C5BB26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71AFDFFB1EF08ECC00C5BB26 /* PhotoViewer */;
+			targetProxy = 71AFE03E1EF08EF200C5BB26 /* PBXContainerItemProxy */;
+		};
+		71AFE0461EF08EF200C5BB26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71AFE0311EF08EF100C5BB26 /* PhotoDataManager */;
+			targetProxy = 71AFE0451EF08EF200C5BB26 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -497,6 +688,78 @@
 			};
 			name = Release;
 		};
+		71AFE04A1EF08EF200C5BB26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WTHS82Y633;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = PhotoDataManager/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = SF.PhotoDataManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		71AFE04B1EF08EF200C5BB26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = WTHS82Y633;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = PhotoDataManager/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = SF.PhotoDataManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		71AFE04E1EF08EF200C5BB26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = WTHS82Y633;
+				INFOPLIST_FILE = PhotoDataManagerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = SF.PhotoDataManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoViewer.app/PhotoViewer";
+			};
+			name = Debug;
+		};
+		71AFE04F1EF08EF200C5BB26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = WTHS82Y633;
+				INFOPLIST_FILE = PhotoDataManagerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = SF.PhotoDataManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoViewer.app/PhotoViewer";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -530,6 +793,22 @@
 			buildConfigurations = (
 				71AFE02B1EF08ECD00C5BB26 /* Debug */,
 				71AFE02C1EF08ECD00C5BB26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		71AFE0491EF08EF200C5BB26 /* Build configuration list for PBXNativeTarget "PhotoDataManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71AFE04A1EF08EF200C5BB26 /* Debug */,
+				71AFE04B1EF08EF200C5BB26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		71AFE04D1EF08EF200C5BB26 /* Build configuration list for PBXNativeTarget "PhotoDataManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71AFE04E1EF08EF200C5BB26 /* Debug */,
+				71AFE04F1EF08EF200C5BB26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
