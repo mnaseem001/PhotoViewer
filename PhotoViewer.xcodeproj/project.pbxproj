@@ -21,6 +21,7 @@
 		71AFE0471EF08EF200C5BB26 /* PhotoDataManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71AFE0321EF08EF100C5BB26 /* PhotoDataManager.framework */; };
 		71AFE0481EF08EF200C5BB26 /* PhotoDataManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 71AFE0321EF08EF100C5BB26 /* PhotoDataManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		71AFE0511EF090EB00C5BB26 /* PhotoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFE0501EF090EB00C5BB26 /* PhotoDataManager.swift */; };
+		71AFE0531EF0924D00C5BB26 /* PhotoDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFE0521EF0924D00C5BB26 /* PhotoDataObject.swift */; };
 		FFF986264AEB6F453DA9E6A5 /* Pods_PhotoViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332C79FB9EC625BEBF3A0B24 /* Pods_PhotoViewer.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		71AFE0411EF08EF200C5BB26 /* PhotoDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDataManagerTests.swift; sourceTree = "<group>"; };
 		71AFE0431EF08EF200C5BB26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71AFE0501EF090EB00C5BB26 /* PhotoDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDataManager.swift; sourceTree = "<group>"; };
+		71AFE0521EF0924D00C5BB26 /* PhotoDataObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDataObject.swift; sourceTree = "<group>"; };
 		8A39601B4BA9FE9F43B7C415 /* Pods-PhotoDataManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoDataManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoDataManager/Pods-PhotoDataManager.debug.xcconfig"; sourceTree = "<group>"; };
 		A6C36A7C7B84EAD04DF21769 /* Pods-PhotoViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoViewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoViewer/Pods-PhotoViewer.release.xcconfig"; sourceTree = "<group>"; };
 		AEF638C3446C17CA0A8F7139 /* Pods-PhotoViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoViewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoViewer/Pods-PhotoViewer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				71AFE0341EF08EF100C5BB26 /* PhotoDataManager.h */,
 				71AFE0501EF090EB00C5BB26 /* PhotoDataManager.swift */,
 				71AFE0351EF08EF100C5BB26 /* Info.plist */,
+				71AFE0521EF0924D00C5BB26 /* PhotoDataObject.swift */,
 			);
 			path = PhotoDataManager;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71AFE0511EF090EB00C5BB26 /* PhotoDataManager.swift in Sources */,
+				71AFE0531EF0924D00C5BB26 /* PhotoDataObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
