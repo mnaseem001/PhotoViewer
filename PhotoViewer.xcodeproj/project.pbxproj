@@ -20,6 +20,7 @@
 		71AFE0441EF08EF200C5BB26 /* PhotoDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 71AFE0341EF08EF100C5BB26 /* PhotoDataManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		71AFE0471EF08EF200C5BB26 /* PhotoDataManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71AFE0321EF08EF100C5BB26 /* PhotoDataManager.framework */; };
 		71AFE0481EF08EF200C5BB26 /* PhotoDataManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 71AFE0321EF08EF100C5BB26 /* PhotoDataManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		71AFE0511EF090EB00C5BB26 /* PhotoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFE0501EF090EB00C5BB26 /* PhotoDataManager.swift */; };
 		FFF986264AEB6F453DA9E6A5 /* Pods_PhotoViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332C79FB9EC625BEBF3A0B24 /* Pods_PhotoViewer.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,7 @@
 		71AFE03A1EF08EF200C5BB26 /* PhotoDataManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoDataManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		71AFE0411EF08EF200C5BB26 /* PhotoDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDataManagerTests.swift; sourceTree = "<group>"; };
 		71AFE0431EF08EF200C5BB26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71AFE0501EF090EB00C5BB26 /* PhotoDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDataManager.swift; sourceTree = "<group>"; };
 		8A39601B4BA9FE9F43B7C415 /* Pods-PhotoDataManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoDataManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoDataManager/Pods-PhotoDataManager.debug.xcconfig"; sourceTree = "<group>"; };
 		A6C36A7C7B84EAD04DF21769 /* Pods-PhotoViewer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoViewer.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoViewer/Pods-PhotoViewer.release.xcconfig"; sourceTree = "<group>"; };
 		AEF638C3446C17CA0A8F7139 /* Pods-PhotoViewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoViewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoViewer/Pods-PhotoViewer.debug.xcconfig"; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				71AFE0341EF08EF100C5BB26 /* PhotoDataManager.h */,
+				71AFE0501EF090EB00C5BB26 /* PhotoDataManager.swift */,
 				71AFE0351EF08EF100C5BB26 /* Info.plist */,
 			);
 			path = PhotoDataManager;
@@ -384,6 +387,7 @@
 					71AFE0311EF08EF100C5BB26 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = WTHS82Y633;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					71AFE0391EF08EF200C5BB26 = {
@@ -565,6 +569,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71AFE0511EF090EB00C5BB26 /* PhotoDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,6 +730,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AEF638C3446C17CA0A8F7139 /* Pods-PhotoViewer.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WTHS82Y633;
 				INFOPLIST_FILE = PhotoViewer/Info.plist;
@@ -739,6 +745,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A6C36A7C7B84EAD04DF21769 /* Pods-PhotoViewer.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = WTHS82Y633;
 				INFOPLIST_FILE = PhotoViewer/Info.plist;
@@ -811,6 +818,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8A39601B4BA9FE9F43B7C415 /* Pods-PhotoDataManager.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -824,6 +832,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = SF.PhotoDataManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -834,6 +843,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D994663979A356CA722D41B7 /* Pods-PhotoDataManager.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -900,6 +910,7 @@
 				71AFE0261EF08ECD00C5BB26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		71AFE0271EF08ECD00C5BB26 /* Build configuration list for PBXNativeTarget "PhotoViewerTests" */ = {
 			isa = XCConfigurationList;
@@ -908,6 +919,7 @@
 				71AFE0291EF08ECD00C5BB26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		71AFE02A1EF08ECD00C5BB26 /* Build configuration list for PBXNativeTarget "PhotoViewerUITests" */ = {
 			isa = XCConfigurationList;
@@ -916,6 +928,7 @@
 				71AFE02C1EF08ECD00C5BB26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		71AFE0491EF08EF200C5BB26 /* Build configuration list for PBXNativeTarget "PhotoDataManager" */ = {
 			isa = XCConfigurationList;
@@ -924,6 +937,7 @@
 				71AFE04B1EF08EF200C5BB26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		71AFE04D1EF08EF200C5BB26 /* Build configuration list for PBXNativeTarget "PhotoDataManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -932,6 +946,7 @@
 				71AFE04F1EF08EF200C5BB26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
