@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 import AlamofireObjectMapper
 import Kingfisher
 
@@ -21,6 +22,8 @@ public class PhotoDataManager : NSObject {
     
     // Number of days to keep Images in cache
     let kMaxCachePeriodInDays: Double = 7.0
+    
+    var photoArray: Array<PhotoDataObject> = Array<PhotoDataObject>()
     
     init(urlString: String) {
         
@@ -37,6 +40,17 @@ public class PhotoDataManager : NSObject {
         let instance = PhotoDataManager.sharedInstance
         instance.feedUrlString = urlString
         return instance
+    }
+    
+    public func fetchPhotoData(completion: @escaping (Array<PhotoDataObject>?) -> Void)  {
+        
+        Alamofire.request(feedUrlString).responseArray { (response: DataResponse<[PhotoDataObject]>) in
+            
+            let array = response.result.value
+            
+            self.photoArray = array!
+            completion(array)
+        }
     }
 
 }
