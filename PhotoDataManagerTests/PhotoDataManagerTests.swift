@@ -21,9 +21,20 @@ class PhotoDataManagerTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testFetchPhotoData() {
+
+        let fetchExpectation = expectation(description: "Completion handler when data is fetched")
+        let manager = PhotoDataManager.sharedInstanceWith(urlString: "http://jsonplaceholder.typicode.com/photos")
+        
+        manager.fetchPhotoData { (photoDataArray) in
+            XCTAssert(photoDataArray != nil, "array should not be nil")
+            XCTAssertTrue(photoDataArray!.count > 0, "array should have at least one object")
+            fetchExpectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 10.0) { (error) in
+            
+        }
     }
     
     func testPerformanceExample() {

@@ -47,7 +47,6 @@ public class PhotoDataManager : NSObject {
         Alamofire.request(feedUrlString).responseArray { (response: DataResponse<[PhotoDataObject]>) in
             
             let array = response.result.value
-            
             self.photoArray = array!
             completion(array)
         }
