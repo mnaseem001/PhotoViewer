@@ -28,14 +28,26 @@ class PhotoDataManagerTests: XCTestCase {
         
         manager.fetchPhotoData { (photoDataArray, error) in
 
-            //Add Gaurd here
             
+            // Test if there are no errors fetching data
+            //  Exit if there are any errors
+            //  Fail testFetchPhotoData()
             if let error = error {
                 XCTFail("fetchPhotoData failed.  Error: \(error.localizedDescription)")
                 fetchExpectation.fulfill()
                 return
             }
+
+            // Test if photoDataArray is not nil
+            //  Exit if photoDataArray because there is no need to do further tests
+            //  Fail testFetchPhotoData()
+            if photoDataArray == nil {
+                XCTFail("photoDataArray should not be nil")
+                fetchExpectation.fulfill()
+                return
+            }
             
+            // Test if fetched photoDataArray has at least one item
             XCTAssertTrue(photoDataArray!.count > 0, "array should have at least one object")
             fetchExpectation.fulfill()
         }
