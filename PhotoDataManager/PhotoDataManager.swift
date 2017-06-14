@@ -23,7 +23,7 @@ public class PhotoDataManager : NSObject {
     // Number of days to keep Images in cache
     let kMaxCachePeriodInDays: Double = 7.0
     
-    var photoArray: Array<PhotoDataObject> = Array<PhotoDataObject>()
+    var photoArray: Array<PhotoDataObject>? = Array<PhotoDataObject>()
     
     init(urlString: String) {
         
@@ -42,13 +42,19 @@ public class PhotoDataManager : NSObject {
         return instance
     }
     
-    public func fetchPhotoData(completion: @escaping (Array<PhotoDataObject>?) -> Void)  {
+    public func fetchPhotoData(completion: @escaping (Array<PhotoDataObject>?, Error?) -> Void)  {
         
         Alamofire.request(feedUrlString).responseArray { (response: DataResponse<[PhotoDataObject]>) in
-            
-            let array = response.result.value
-            self.photoArray = array!
-            completion(array)
+            if let error = response.result.error {
+                // got an error while deleting, need to handle it
+                print("error calling DELETE on /todos/1")
+                print(error)
+                completion(nil,error)
+            } else {
+                self.photoArray = response.result.value
+                completion(response.result.value,nil)
+            }
+
         }
     }
 
