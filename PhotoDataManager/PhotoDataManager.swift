@@ -23,7 +23,7 @@ public class PhotoDataManager : NSObject {
     // Number of days to keep Images in cache
     let kMaxCachePeriodInDays: Double = 7.0
     
-    var photoArray: Array<PhotoDataObject>? = Array<PhotoDataObject>()
+    public var photoArray: Array<PhotoDataObject> = Array<PhotoDataObject>()
     
     init(urlString: String) {
         
@@ -48,13 +48,49 @@ public class PhotoDataManager : NSObject {
             
             switch response.result {
             case .success:
-                self.photoArray = response.result.value
-                completion(response.result.value,nil)
+                if let array = response.result.value {
+                    self.photoArray = array
+                }
+                
+                completion(self.photoArray,nil)
             case .failure(let error):
-                completion(nil,error)
+                completion(self.photoArray,error)
             }
+        }
+    }
+    
+    public func prefetchPhotoImages(completion: @escaping (_ completedResources: [Resource]) -> Void) {
+        
+        let imageUrlArray = self.photoArray.map { URL(string: $0.thumbnailUrlString!)!
             
         }
+        
+        let slice = imageUrlArray[0...10]
+        let array = Array(slice)
+        
+        let prefetcher = ImagePrefetcher(urls: array, options: nil, progressBlock: { (skippedResources, failedResources, completedResources) in
+            //print("Prefetched: \(skippedResources.count) \(failedResources.count) \(completedResources.count) ")
+            
+        }, completionHandler: { (skippedResources, failedResources, completedResources) in
+            print("Prefetched: \(skippedResources.count) \(failedResources.count) \(completedResources.count) ")
+            //print("These resources are prefetched: \(completedResources)")
+            completion(completedResources)
+            
+        })
+
+        prefetcher.start()
+        print()
+    }
+    
+    public func clearImageCache() {
+        // Clear memory cache right away.
+        ImageCache.default.clearMemoryCache()
+        
+        // Clear disk cache. This is an async operation.
+        ImageCache.default.clearDiskCache()
+        
+        // Clean expired or size exceeded disk cache. This is an async operation.
+        ImageCache.default.cleanExpiredDiskCache()
     }
 
 }
