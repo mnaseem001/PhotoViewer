@@ -45,16 +45,15 @@ public class PhotoDataManager : NSObject {
     public func fetchPhotoData(completion: @escaping (Array<PhotoDataObject>?, Error?) -> Void)  {
         
         Alamofire.request(feedUrlString).responseArray { (response: DataResponse<[PhotoDataObject]>) in
-            if let error = response.result.error {
-                // got an error while deleting, need to handle it
-                print("error calling DELETE on /todos/1")
-                print(error)
-                completion(nil,error)
-            } else {
+            
+            switch response.result {
+            case .success:
                 self.photoArray = response.result.value
                 completion(response.result.value,nil)
+            case .failure(let error):
+                completion(nil,error)
             }
-
+            
         }
     }
 
