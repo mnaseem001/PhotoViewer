@@ -9,13 +9,92 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PhotoDataManager/PhotoDataManager.swift"
-            timestampString = "519083747.202199"
+            filePath = "PhotoDataManagerTests/PhotoDataManagerTests.swift"
+            timestampString = "519143681.215159"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
             endingLineNumber = "51"
-            landmarkName = "fetchPhotoData(completion:)"
+            landmarkName = "testFetchPhotoData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PhotoDataManagerTests.PhotoDataManagerTests.(testFetchPhotoData () -&gt; ()).(closure #1)"
+                  moduleName = "PhotoDataManagerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mansoornaseem/workbench/latest/0613/PhotoViewer/PhotoDataManagerTests/PhotoDataManagerTests.swift"
+                  timestampString = "519144684.498532"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "882">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PhotoDataManagerTests.PhotoDataManagerTests.(testFetchPhotoData () -&gt; ()).(closure #1).(implicit closure #1)"
+                  moduleName = "PhotoDataManagerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mansoornaseem/workbench/latest/0613/PhotoViewer/PhotoDataManagerTests/PhotoDataManagerTests.swift"
+                  timestampString = "519144684.500869"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PhotoDataManagerTests.PhotoDataManagerTests.(testFetchPhotoData () -&gt; ()).(closure #1).(implicit closure #2)"
+                  moduleName = "PhotoDataManagerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mansoornaseem/workbench/latest/0613/PhotoViewer/PhotoDataManagerTests/PhotoDataManagerTests.swift"
+                  timestampString = "519144684.503205"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoDataManagerTests/PhotoDataManagerTests.swift"
+            timestampString = "519143681.215159"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "testFetchPhotoData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PhotoDataManagerTests/PhotoDataManagerTests.swift"
+            timestampString = "519139758.731808"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "testFetchPhotoData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +104,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PhotoDataManager/PhotoDataManager.swift"
-            timestampString = "519083932.54984"
+            filePath = "PhotoDataManagerTests/PhotoDataManagerTests.swift"
+            timestampString = "519139762.352603"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "fetchPhotoData(completion:)"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "testFetchPhotoData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

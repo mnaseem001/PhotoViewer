@@ -10,3 +10,8 @@ target 'PhotoDataManager' do
     pod 'AlamofireObjectMapper', '~> 4.0'
     pod 'Kingfisher', '~> 3.0'
 end
+
+target 'PhotoDataManagerTests' do
+    pod 'AlamofireObjectMapper', '~> 4.0'
+    pod 'Kingfisher', '~> 3.0'
+end

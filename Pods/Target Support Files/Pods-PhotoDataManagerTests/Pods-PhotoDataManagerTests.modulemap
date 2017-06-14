@@ -1,0 +1,6 @@
+framework module Pods_PhotoDataManagerTests {
+  umbrella header "Pods-PhotoDataManagerTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

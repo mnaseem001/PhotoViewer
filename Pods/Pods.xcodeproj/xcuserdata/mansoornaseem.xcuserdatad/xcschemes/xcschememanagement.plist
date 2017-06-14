@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-PhotoDataManagerTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-PhotoViewer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -48,6 +53,11 @@
 			<true/>
 		</dict>
 		<key>2F5622F3B18DF497981AB58C6D1FC72F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>80336495817ED368628FD165C548611B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
