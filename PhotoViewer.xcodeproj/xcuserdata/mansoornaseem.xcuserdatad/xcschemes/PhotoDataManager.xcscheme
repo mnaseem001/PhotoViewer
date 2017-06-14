@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "71AFE0391EF08EF200C5BB26"
+               BuildableName = "PhotoDataManagerTests.xctest"
+               BlueprintName = "PhotoDataManagerTests"
+               ReferencedContainer = "container:PhotoViewer.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "71AFE0311EF08EF100C5BB26"
+            BuildableName = "PhotoDataManager.framework"
+            BlueprintName = "PhotoDataManager"
+            ReferencedContainer = "container:PhotoViewer.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>

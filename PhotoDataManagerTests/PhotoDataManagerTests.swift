@@ -11,6 +11,9 @@ import XCTest
 
 class PhotoDataManagerTests: XCTestCase {
     
+    // http://jsonplaceholder.typicode.com/photos is serving exactly 5000 records
+    let kPhotoDataArraySizeOnServer = 5000
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -28,27 +31,34 @@ class PhotoDataManagerTests: XCTestCase {
         
         manager.fetchPhotoData { (photoDataArray, error) in
 
-            
             // Test if there are no errors fetching data
-            //  Exit if there are any errors
             //  Fail testFetchPhotoData()
             if let error = error {
                 XCTFail("fetchPhotoData failed.  Error: \(error.localizedDescription)")
-                fetchExpectation.fulfill()
-                return
             }
 
             // Test if photoDataArray is not nil
+            //  photoDataArray should never be nil even if there was no data fetched. Even if HTTP Call failed.
+            //  This will only occur if ObjectMapper fails for some reason and returns a nil.
             //  Exit if photoDataArray because there is no need to do further tests
             //  Fail testFetchPhotoData()
             if photoDataArray == nil {
-                XCTFail("photoDataArray should not be nil")
+                XCTFail("photoDataArray should never be nil.")
                 fetchExpectation.fulfill()
                 return
             }
             
-            // Test if fetched photoDataArray has at least one item
-            XCTAssertTrue(photoDataArray!.count > 0, "array should have at least one object")
+            // Test if fetched photoDataArray is not empty
+            XCTAssertTrue(photoDataArray!.count > 0, "Photo Data fetch failed or server suddenly is has no data.")
+            
+            // Text if fetched photoDataArray has 5000 records
+            XCTAssertTrue(photoDataArray!.count == self.kPhotoDataArraySizeOnServer, "Photo Data fetch failed or server suddenly is has no data.")
+            
+            
+            // Test if an object in photoDataArray is a PhotoDataObject
+            //
+            let object = photoDataArray?[0]
+            XCTAssertTrue((object as Any) is PhotoDataObject, "Objects from photoDataArray should be PhotoDataObject types")
             fetchExpectation.fulfill()
         }
 
