@@ -26,8 +26,16 @@ class PhotoDataManagerTests: XCTestCase {
         let fetchExpectation = expectation(description: "Completion handler when data is fetched")
         let manager = PhotoDataManager.sharedInstanceWith(urlString: "http://jsonplaceholder.typicode.com/photos")
         
-        manager.fetchPhotoData { (photoDataArray) in
-            XCTAssert(photoDataArray != nil, "array should not be nil")
+        manager.fetchPhotoData { (photoDataArray, error) in
+
+            //Add Gaurd here
+            
+            if let error = error {
+                XCTFail("fetchPhotoData failed.  Error: \(error.localizedDescription)")
+                fetchExpectation.fulfill()
+                return
+            }
+            
             XCTAssertTrue(photoDataArray!.count > 0, "array should have at least one object")
             fetchExpectation.fulfill()
         }
