@@ -48,10 +48,9 @@ public class PhotoDataManager : NSObject {
             
             switch response.result {
             case .success:
-                if let array = response.result.value {
-                    self.photoArray = array
+                if let tempPhotoArray = response.result.value {
+                    self.photoArray = tempPhotoArray
                 }
-                
                 completion(self.photoArray,nil)
             case .failure(let error):
                 completion(self.photoArray,error)
@@ -80,6 +79,37 @@ public class PhotoDataManager : NSObject {
 
         prefetcher.start()
         print()
+    }
+    
+    func fetchImage(urlString: String, completion: @escaping (_ image: UIImage?) -> Void) {
+        ImageCache.default.retrieveImage(forKey: urlString, options: nil) {
+            image, cacheType in
+            if let _ = image {
+                // Image is already downloaded
+                DispatchQueue.main.async {
+                    completion(image)
+                }
+            } else {
+                
+                // Download image and store it in cache
+                if let url = URL(string:urlString) {
+                    ImageDownloader.default.downloadImage(with: url, options: [], progressBlock: nil) {
+                        (image, error, url, data) in
+                        if let image = image {
+                            ImageCache.default.store(image, forKey: urlString)
+                        }
+                        DispatchQueue.main.async {
+                            completion(image)
+                        }
+                    }
+                } else {
+                    // In this case image should be nil
+                    DispatchQueue.main.async {
+                        completion(image)
+                    }
+                }
+            }
+        }
     }
     
     public func clearImageCache() {
