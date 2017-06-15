@@ -73,7 +73,7 @@ class PhotoDataManagerTests: XCTestCase {
         }
     }
     
-    func fetchPhotoDataWithCursor() {
+    func fetchPhotoDataWithCursor(cursorExpectation: XCTestExpectation) {
         
         let manager = PhotoDataManager.sharedInstanceWith(urlString: kPhotoServerUrlString)
         
@@ -81,19 +81,22 @@ class PhotoDataManagerTests: XCTestCase {
             
             if cursorArray?.count == 0 {
                 print("cursorArray?.count == 0")
+                XCTFail("cursorArray cannot be empty")
                 return
             } else if cursorArray?.count == manager.photoArray.count {
                 print("exit because you hit the end")
                 // this is good
                 // exit because you hit the end
+                cursorExpectation.fulfill()
                 return
             } else if (cursorArray?.count)! > manager.photoArray.count {
+                XCTFail("How can cursorArray?.count (\(cursorArray?.count)) > manager.photoArray.count\(manager.photoArray.count). Something wrong with fetch cursor algorithm.")
                 print("ELSE (cursorArray?.count)! > manager.photoArray.count>> cursorArray?.count = \(cursorArray?.count)")
                 // something seriously went wrong
                 return
             } else {
                 print("ELSE >> cursorArray?.count = \(cursorArray?.count)")
-                self.fetchPhotoDataWithCursor()
+                self.fetchPhotoDataWithCursor(cursorExpectation: cursorExpectation)
             }
             
         }
@@ -102,8 +105,12 @@ class PhotoDataManagerTests: XCTestCase {
     }
     
     func testFetchPhotoDataWithCursor() {
-        let fetchExpectation = expectation(description: "Completion handler when data is fetched using cursor")
-        fetchPhotoDataWithCursor()
+        let cursorExpectation = expectation(description: "Completion handler when data is fetched using cursor")
+        fetchPhotoDataWithCursor(cursorExpectation: cursorExpectation)
+        
+        waitForExpectations(timeout: 10.0) { (error) in
+            
+        }
     }
     
 //    func testFetchPhotoDataWithCursor() {
