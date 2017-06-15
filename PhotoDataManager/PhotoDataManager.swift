@@ -121,26 +121,30 @@ public class PhotoDataManager : NSObject {
     
     
     public func fetchPhotoDataWithCursor(completion: @escaping (Array<PhotoDataObject>?, Error?) -> Void)  {
-        
-        if self.photoArrayCursorIndex >= (self.photoArray.count - 1) {
-            completion(self.photoArrayWithCursor,nil)
-            return
+        DispatchQueue.global(qos: .default).async {
+            if self.photoArrayCursorIndex >= (self.photoArray.count - 1) {
+                completion(self.photoArrayWithCursor,nil)
+                return
+            }
+            
+            var toIndex = self.photoArrayCursorIndex+self.photoArrayCursorFetchSize
+            if toIndex > (self.photoArray.count - 1) {
+                toIndex = self.photoArray.count
+            }
+            
+            let slice = self.photoArray[self.photoArrayCursorIndex..<toIndex]
+            print("fetchPhotoDataWithCursor >> \(self.photoArrayCursorIndex)..<\(toIndex)")
+            
+            self.photoArrayCursorIndex = self.photoArrayCursorIndex+self.photoArrayCursorFetchSize
+            let array = Array(slice)
+            self.photoArrayWithCursor.append(contentsOf: array)
+            let reversedArray = Array(self.photoArrayWithCursor.reversed())
+            DispatchQueue.main.async {
+                completion(reversedArray, nil)
+            }
+            
         }
-        
-        var toIndex = self.photoArrayCursorIndex+self.photoArrayCursorFetchSize
-        if toIndex > (self.photoArray.count - 1) {
-            toIndex = self.photoArray.count
-        }
-        
-        let slice = self.photoArray[self.photoArrayCursorIndex..<toIndex]
-        print("fetchPhotoDataWithCursor >> \(self.photoArrayCursorIndex)..<\(toIndex)")
-        
-        self.photoArrayCursorIndex = self.photoArrayCursorIndex+self.photoArrayCursorFetchSize
-        let array = Array(slice)
-    
-        self.photoArrayWithCursor.append(contentsOf: array)
-        
-        completion(self.photoArrayWithCursor, nil)
+
     }
     
     public func clearImageCache() {

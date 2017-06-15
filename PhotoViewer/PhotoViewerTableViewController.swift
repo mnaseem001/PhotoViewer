@@ -13,21 +13,16 @@ class PhotoViewerTableViewController: UITableViewController {
     
     public var photoArray: Array<PhotoDataObject> = Array<PhotoDataObject>()
     
+    var refreshInProgress = false
+    
     override func viewDidLoad() {
         tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
         NotificationCenter.default.addObserver(self, selector: #selector(PhotoViewerTableViewController.handleFetchDataDone(notification:)), name: Notification.Name(PhotoViewerConstants.kNotificationFetchedPhotosDone), object: nil)
     }
     
-    func handleFetchDataDone(notification: Notification){
-
-        print("now can I fetch data")
-        self.fetchData()
-    }
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         
         self.navigationController?.navigationBar.topItem?.title = "Photos"
         
@@ -44,21 +39,42 @@ class PhotoViewerTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")! as UITableViewCell
-        
         let photoObject = photoArray[indexPath.row]
-        
-        
         let manager = PhotoDataManager.sharedInstance
+        cell.textLabel?.lineBreakMode = .byWordWrapping;
+        cell.textLabel?.numberOfLines = 0;
         if let thumbnailUrlString = photoObject.thumbnailUrlString {
             manager.fetchImage(urlString: thumbnailUrlString) { (image) in
                 cell.imageView?.image = image
-                cell.textLabel?.text = photoObject.title
+                if let photoId = photoObject.feedObjectId, let photoTitle = photoObject.title {
+                    cell.textLabel?.text = "\(String(describing: photoId)). \(String(describing: photoTitle))"
+                }
             }
         }
 
+
         return cell
     }
+    
+    
+    @IBAction func refresh(_ sender: UIRefreshControl) {
+    
+        guard refreshInProgress == false else {
+            return
+        }
+        refreshInProgress = true
+        let manager = PhotoDataManager.sharedInstance
+        manager.fetchPhotoDataWithCursor { (cursorArray, error) in
+            
+            self.photoArray = cursorArray!
+            self.tableView.reloadData()
+            sender.endRefreshing()
 
+            sleep(UInt32(1.0))
+            self.refreshInProgress = false
+        }
+    }
+    
 }
 
 extension PhotoViewerTableViewController {
@@ -74,6 +90,12 @@ extension PhotoViewerTableViewController {
             self.tableView.reloadData()
         }
         
+    }
+    
+    func handleFetchDataDone(notification: Notification){
+        
+        print("now can I fetch data")
+        self.fetchData()
     }
 }
 
