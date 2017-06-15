@@ -25,6 +25,10 @@ public class PhotoDataManager : NSObject {
     
     public var photoArray: Array<PhotoDataObject> = Array<PhotoDataObject>()
     
+    public var photoArrayCursorIndex = 0
+    public var photoArrayCursorFetchSize = 100
+    public var photoArrayWithCursor: Array<PhotoDataObject> = Array<PhotoDataObject>()
+    
     init(urlString: String) {
         
         feedUrlString = urlString
@@ -50,6 +54,9 @@ public class PhotoDataManager : NSObject {
             case .success:
                 if let tempPhotoArray = response.result.value {
                     self.photoArray = tempPhotoArray
+                    
+//                    let slice = tempPhotoArray[0...601]
+//                    self.photoArray = Array(slice)
                 }
                 completion(self.photoArray,nil)
             case .failure(let error):
@@ -64,10 +71,10 @@ public class PhotoDataManager : NSObject {
             
         }
         
-        let slice = imageUrlArray[0...10]
-        let array = Array(slice)
+//        let slice = imageUrlArray[0...10]
+//        let array = Array(slice)
         
-        let prefetcher = ImagePrefetcher(urls: array, options: nil, progressBlock: { (skippedResources, failedResources, completedResources) in
+        let prefetcher = ImagePrefetcher(urls: imageUrlArray, options: nil, progressBlock: { (skippedResources, failedResources, completedResources) in
             //print("Prefetched: \(skippedResources.count) \(failedResources.count) \(completedResources.count) ")
             
         }, completionHandler: { (skippedResources, failedResources, completedResources) in
@@ -81,7 +88,7 @@ public class PhotoDataManager : NSObject {
         print()
     }
     
-    func fetchImage(urlString: String, completion: @escaping (_ image: UIImage?) -> Void) {
+    public func fetchImage(urlString: String, completion: @escaping (_ image: UIImage?) -> Void) {
         ImageCache.default.retrieveImage(forKey: urlString, options: nil) {
             image, cacheType in
             if let _ = image {
@@ -110,6 +117,30 @@ public class PhotoDataManager : NSObject {
                 }
             }
         }
+    }
+    
+    
+    public func fetchPhotoDataWithCursor(completion: @escaping (Array<PhotoDataObject>?, Error?) -> Void)  {
+        
+        if self.photoArrayCursorIndex >= (self.photoArray.count - 1) {
+            completion(self.photoArrayWithCursor,nil)
+            return
+        }
+        
+        var toIndex = self.photoArrayCursorIndex+self.photoArrayCursorFetchSize
+        if toIndex > (self.photoArray.count - 1) {
+            toIndex = self.photoArray.count
+        }
+        
+        let slice = self.photoArray[self.photoArrayCursorIndex..<toIndex]
+        print("fetchPhotoDataWithCursor >> \(self.photoArrayCursorIndex)..<\(toIndex)")
+        
+        self.photoArrayCursorIndex = self.photoArrayCursorIndex+self.photoArrayCursorFetchSize
+        let array = Array(slice)
+    
+        self.photoArrayWithCursor.append(contentsOf: array)
+        
+        completion(self.photoArrayWithCursor, nil)
     }
     
     public func clearImageCache() {
