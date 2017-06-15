@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PhotoDataManager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let manager = PhotoDataManager.sharedInstanceWith(urlString: PhotoViewerConstants.kPhotoServerUrlString)
+        manager.fetchPhotoData { (photoDataArray, error) in
+            NotificationCenter.default.post(name: Notification.Name(PhotoViewerConstants.kNotificationFetchedPhotosDone), object: nil)
+            
+            // Prefetch All images
+            manager.prefetchPhotoImages(completion: { (completedResource) in
+                // Custom code if necessary
+            })
+        }
+        
         return true
     }
 

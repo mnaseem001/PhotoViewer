@@ -38,7 +38,7 @@ public class PhotoDataManager : NSObject {
         ImageCache.default.maxCachePeriodInSecond = 60 * 60 * 24 * kMaxCachePeriodInDays
     }
     
-    static let sharedInstance = PhotoDataManager(urlString: "http://jsonplaceholder.typicode.com/photos")
+    public static let sharedInstance = PhotoDataManager(urlString: "http://jsonplaceholder.typicode.com/photos")
     
     public static func sharedInstanceWith(urlString: String) -> PhotoDataManager {
         let instance = PhotoDataManager.sharedInstance
