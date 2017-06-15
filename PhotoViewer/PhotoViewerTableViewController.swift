@@ -46,19 +46,24 @@ class PhotoViewerTableViewController: UITableViewController {
         if let thumbnailUrlString = photoObject.thumbnailUrlString {
             manager.fetchImage(urlString: thumbnailUrlString) { (image) in
                 cell.imageView?.image = image
-                if let photoId = photoObject.feedObjectId, let photoTitle = photoObject.title {
-                    cell.textLabel?.text = "\(String(describing: photoId)). \(String(describing: photoTitle))"
+                if let photoId = photoObject.feedObjectId, let photoTitle = photoObject.title, let albumId = photoObject.albumId {
+                    cell.textLabel?.text = "ID: \(String(describing: photoId)) - Album ID: \(albumId). \(String(describing: photoTitle))"
                 }
             }
         }
 
-
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let detailViewController = storyboard.instantiateViewController(withIdentifier: "PhotoViewDetailViewController") as! PhotoViewDetailViewController
+        detailViewController.photoObject = photoArray[indexPath.row]
+        self.navigationController?.pushViewController(detailViewController, animated: true)
+        
+    }
     
     @IBAction func refresh(_ sender: UIRefreshControl) {
-    
         guard refreshInProgress == false else {
             return
         }
@@ -80,21 +85,14 @@ class PhotoViewerTableViewController: UITableViewController {
 extension PhotoViewerTableViewController {
 
     fileprivate func fetchData() {
-        print("trying to fetch data")
         let manager = PhotoDataManager.sharedInstance
-
-        
         manager.fetchPhotoDataWithCursor { (cursorArray, error) in
-            
             self.photoArray = cursorArray!
             self.tableView.reloadData()
         }
-        
     }
     
     func handleFetchDataDone(notification: Notification){
-        
-        print("now can I fetch data")
         self.fetchData()
     }
 }

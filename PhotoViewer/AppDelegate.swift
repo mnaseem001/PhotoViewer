@@ -16,7 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Use the PhotoDataManager Package
+        // Get sharedInstance (a singleton)
+        // - use the server url dependency for this app
+        // After fetch is done successful or failed send notification
+        // Prefect all thumbnail images
+        // - Takes rougly over 67 seconds to download 5000 thumbnail images on a very good WIFI
+        // - NOTE: Prefetch may need be turned off in case network issue
         let manager = PhotoDataManager.sharedInstanceWith(urlString: PhotoViewerConstants.kPhotoServerUrlString)
         manager.fetchPhotoData { (photoDataArray, error) in
             NotificationCenter.default.post(name: Notification.Name(PhotoViewerConstants.kNotificationFetchedPhotosDone), object: nil)

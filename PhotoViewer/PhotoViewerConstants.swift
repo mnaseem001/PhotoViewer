@@ -9,7 +9,10 @@
 import Foundation
 
 struct PhotoViewerConstants {
+    
+    // Main URL to fetch Json data
     static let kPhotoServerUrlString = "http://jsonplaceholder.typicode.com/photos"
     
+    // Notification to let observers know initial json has been fetched from server
     static let kNotificationFetchedPhotosDone = "kNotificationFetchedPhotosDone"
 }
