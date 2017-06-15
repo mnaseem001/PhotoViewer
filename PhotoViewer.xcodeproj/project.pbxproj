@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		56A2B14CB0250B3A854C5800 /* Pods_PhotoDataManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13000A3119DD47B94D4AAAA2 /* Pods_PhotoDataManager.framework */; };
+		715C3AA91EF2376500B45D44 /* PhotoViewerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715C3AA81EF2376500B45D44 /* PhotoViewerTableViewController.swift */; };
+		715C3AAB1EF23B4C00B45D44 /* PhotoViewerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715C3AAA1EF23B4C00B45D44 /* PhotoViewerConstants.swift */; };
 		71AFE0001EF08ECC00C5BB26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFDFFF1EF08ECC00C5BB26 /* AppDelegate.swift */; };
-		71AFE0021EF08ECC00C5BB26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFE0011EF08ECC00C5BB26 /* ViewController.swift */; };
 		71AFE0051EF08ECC00C5BB26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71AFE0031EF08ECC00C5BB26 /* Main.storyboard */; };
 		71AFE0071EF08ECC00C5BB26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71AFE0061EF08ECC00C5BB26 /* Assets.xcassets */; };
 		71AFE00A1EF08ECC00C5BB26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71AFE0081EF08ECC00C5BB26 /* LaunchScreen.storyboard */; };
@@ -81,9 +82,10 @@
 /* Begin PBXFileReference section */
 		13000A3119DD47B94D4AAAA2 /* Pods_PhotoDataManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoDataManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		332C79FB9EC625BEBF3A0B24 /* Pods_PhotoViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		715C3AA81EF2376500B45D44 /* PhotoViewerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewerTableViewController.swift; sourceTree = "<group>"; };
+		715C3AAA1EF23B4C00B45D44 /* PhotoViewerConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewerConstants.swift; sourceTree = "<group>"; };
 		71AFDFFC1EF08ECC00C5BB26 /* PhotoViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71AFDFFF1EF08ECC00C5BB26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		71AFE0011EF08ECC00C5BB26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		71AFE0041EF08ECC00C5BB26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		71AFE0061EF08ECC00C5BB26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71AFE0091EF08ECC00C5BB26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -185,11 +187,12 @@
 			isa = PBXGroup;
 			children = (
 				71AFDFFF1EF08ECC00C5BB26 /* AppDelegate.swift */,
-				71AFE0011EF08ECC00C5BB26 /* ViewController.swift */,
 				71AFE0031EF08ECC00C5BB26 /* Main.storyboard */,
 				71AFE0061EF08ECC00C5BB26 /* Assets.xcassets */,
 				71AFE0081EF08ECC00C5BB26 /* LaunchScreen.storyboard */,
 				71AFE00B1EF08ECC00C5BB26 /* Info.plist */,
+				715C3AA81EF2376500B45D44 /* PhotoViewerTableViewController.swift */,
+				715C3AAA1EF23B4C00B45D44 /* PhotoViewerConstants.swift */,
 			);
 			path = PhotoViewer;
 			sourceTree = "<group>";
@@ -600,7 +603,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71AFE0021EF08ECC00C5BB26 /* ViewController.swift in Sources */,
+				715C3AA91EF2376500B45D44 /* PhotoViewerTableViewController.swift in Sources */,
+				715C3AAB1EF23B4C00B45D44 /* PhotoViewerConstants.swift in Sources */,
 				71AFE0001EF08ECC00C5BB26 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
