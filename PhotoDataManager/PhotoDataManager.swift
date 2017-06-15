@@ -13,8 +13,6 @@ import Kingfisher
 
 public class PhotoDataManager : NSObject {
     
-    var data: Data?
-    
     var feedUrlString: String
     
     // Number of MB max cache storage space for Images
@@ -26,6 +24,8 @@ public class PhotoDataManager : NSObject {
     public var photoArray: Array<PhotoDataObject> = Array<PhotoDataObject>()
     
     public var photoArrayCursorIndex = 0
+    
+    // Album ID's look like they are 50
     public var photoArrayCursorFetchSize = 100
     public var photoArrayWithCursor: Array<PhotoDataObject> = Array<PhotoDataObject>()
     
@@ -49,6 +49,9 @@ public class PhotoDataManager : NSObject {
     public func fetchPhotoData(completion: @escaping (Array<PhotoDataObject>?, Error?) -> Void)  {
         
         Alamofire.request(feedUrlString).responseArray { (response: DataResponse<[PhotoDataObject]>) in
+            
+            // Reset photoArrayWithCursor
+            self.resetPhotoArrayCursor()
             
             switch response.result {
             case .success:
@@ -156,6 +159,14 @@ public class PhotoDataManager : NSObject {
         
         // Clean expired or size exceeded disk cache. This is an async operation.
         ImageCache.default.cleanExpiredDiskCache()
+    }
+    
+    public func resetPhotoArrayCursor() {
+        // Reset photoArrayWithCursor
+        self.photoArrayCursorIndex = 0
+        
+        // This will remove all objects
+        self.photoArrayWithCursor.removeAll()
     }
 
 }
