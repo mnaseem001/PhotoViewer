@@ -88,10 +88,14 @@ public class PhotoDataManager : NSObject {
     }
     
 
-    public func loadImages() {
+    public func loadImages(completion: @escaping () -> Void) {
         DispatchQueue.global(qos: .default).async {
             
             if self.fetchIndex >= (self.photoArray.count - 1 ) {
+                
+                DispatchQueue.main.async {
+                    completion()
+                }
                 return
             }
             var toIndex = self.fetchIndex+self.fetchSize
@@ -106,7 +110,10 @@ public class PhotoDataManager : NSObject {
             
             self.prefetchPhotoImages(imageUrlArray: imageUrlArray, completion: { (completedResource) in
                 // Custom code if necessary
-                self.loadImages()
+                self.loadImages(completion: { 
+                    // Empty block
+                    completion()
+                })
             })
         }
 

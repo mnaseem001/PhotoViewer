@@ -53,7 +53,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if error == nil {
                 NotificationCenter.default.post(name: Notification.Name(PhotoViewerConstants.kNotificationFetchedPhotosDone), object: nil)
                 // Prefetch All images
-                manager.loadImages()
+                manager.loadImages {
+                    // Done fetching.
+                    print("done fetching")
+                }
                 
             } else {
                 
