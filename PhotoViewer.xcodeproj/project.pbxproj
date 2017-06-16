@@ -12,6 +12,7 @@
 		7108D2121EF2D86C001FDD60 /* PhotoDataManagerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7108D2111EF2D86C001FDD60 /* PhotoDataManagerConstants.swift */; };
 		715C3AA91EF2376500B45D44 /* PhotoViewerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715C3AA81EF2376500B45D44 /* PhotoViewerTableViewController.swift */; };
 		715C3AAB1EF23B4C00B45D44 /* PhotoViewerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715C3AAA1EF23B4C00B45D44 /* PhotoViewerConstants.swift */; };
+		7160F5E51EF3F7C4004BC203 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 7160F5E41EF3F7C4004BC203 /* README.md */; };
 		71AFE0001EF08ECC00C5BB26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFDFFF1EF08ECC00C5BB26 /* AppDelegate.swift */; };
 		71AFE0051EF08ECC00C5BB26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71AFE0031EF08ECC00C5BB26 /* Main.storyboard */; };
 		71AFE0071EF08ECC00C5BB26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71AFE0061EF08ECC00C5BB26 /* Assets.xcassets */; };
@@ -88,6 +89,7 @@
 		7108D2111EF2D86C001FDD60 /* PhotoDataManagerConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDataManagerConstants.swift; sourceTree = "<group>"; };
 		715C3AA81EF2376500B45D44 /* PhotoViewerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewerTableViewController.swift; sourceTree = "<group>"; };
 		715C3AAA1EF23B4C00B45D44 /* PhotoViewerConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewerConstants.swift; sourceTree = "<group>"; };
+		7160F5E41EF3F7C4004BC203 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		71AFDFFC1EF08ECC00C5BB26 /* PhotoViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71AFDFFF1EF08ECC00C5BB26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71AFE0041EF08ECC00C5BB26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		71AFDFF31EF08ECC00C5BB26 = {
 			isa = PBXGroup;
 			children = (
+				7160F5E41EF3F7C4004BC203 /* README.md */,
 				71AFDFFE1EF08ECC00C5BB26 /* PhotoViewer */,
 				71AFE0131EF08ECD00C5BB26 /* PhotoViewerTests */,
 				71AFE01E1EF08ECD00C5BB26 /* PhotoViewerUITests */,
@@ -611,6 +614,7 @@
 			files = (
 				715C3AA91EF2376500B45D44 /* PhotoViewerTableViewController.swift in Sources */,
 				7108D2101EF2A76C001FDD60 /* PhotoViewDetailViewController.swift in Sources */,
+				7160F5E51EF3F7C4004BC203 /* README.md in Sources */,
 				715C3AAB1EF23B4C00B45D44 /* PhotoViewerConstants.swift in Sources */,
 				71AFE0001EF08ECC00C5BB26 /* AppDelegate.swift in Sources */,
 			);
