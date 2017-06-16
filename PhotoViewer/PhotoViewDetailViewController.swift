@@ -28,7 +28,7 @@ class PhotoViewDetailViewController: UIViewController {
         
         if let photoObject = photoObject, let photoId = photoObject.feedObjectId, let photoTitle = photoObject.title, let albumId = photoObject.albumId {
             photoIdLabel.text = "ID: \(String(describing: photoId))"
-            albumIdLabel.text = "Album ID: \(albumId). \(String(describing: photoTitle))"
+            albumIdLabel.text = "Album ID: \(albumId)"
             photoTitleLabel.text = photoTitle
             if let urlString = photoObject.urlString {
                 let manager = PhotoDataManager.sharedInstance

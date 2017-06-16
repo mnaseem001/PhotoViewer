@@ -64,33 +64,33 @@
                                     <constraint firstAttribute="height" constant="300" id="0zg-Jm-RFT"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMl-VV-PGx">
-                                <rect key="frame" x="36" y="320" width="100" height="44"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMl-VV-PGx">
+                                <rect key="frame" x="36" y="320" width="200" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="42U-EG-FI5"/>
-                                    <constraint firstAttribute="width" constant="100" id="Evk-qW-jDH"/>
+                                    <constraint firstAttribute="width" constant="200" id="Evk-qW-jDH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4M-x0-reA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4M-x0-reA">
                                 <rect key="frame" x="36" y="384" width="343" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="Wgb-pL-s99"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5IT-km-Gmc">
-                                <rect key="frame" x="255" y="320" width="100" height="44"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5IT-km-Gmc">
+                                <rect key="frame" x="150" y="320" width="200" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="BYB-cu-jp4"/>
-                                    <constraint firstAttribute="width" constant="100" id="z9A-VB-on0"/>
+                                    <constraint firstAttribute="width" constant="200" id="z9A-VB-on0"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -103,7 +103,7 @@
                             <constraint firstItem="5IT-km-Gmc" firstAttribute="top" secondItem="isB-bM-oTI" secondAttribute="bottom" constant="20" id="Vz4-d0-4oO"/>
                             <constraint firstItem="Y4M-x0-reA" firstAttribute="trailing" secondItem="zp9-m8-GtV" secondAttribute="trailingMargin" constant="20" id="YtA-3D-6X5"/>
                             <constraint firstItem="Y4M-x0-reA" firstAttribute="top" secondItem="5IT-km-Gmc" secondAttribute="bottom" constant="20" id="bx4-UE-MqB"/>
-                            <constraint firstAttribute="trailing" secondItem="5IT-km-Gmc" secondAttribute="trailing" constant="20" id="cRS-MC-TPt"/>
+                            <constraint firstAttribute="trailing" secondItem="5IT-km-Gmc" secondAttribute="trailing" constant="25" id="cRS-MC-TPt"/>
                             <constraint firstItem="Y4M-x0-reA" firstAttribute="leading" secondItem="zp9-m8-GtV" secondAttribute="leadingMargin" constant="20" id="dzv-89-zg6"/>
                             <constraint firstItem="bMl-VV-PGx" firstAttribute="leading" secondItem="zp9-m8-GtV" secondAttribute="leadingMargin" constant="20" id="hwJ-YG-RI4"/>
                         </constraints>
