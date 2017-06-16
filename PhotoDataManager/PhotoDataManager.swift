@@ -36,7 +36,7 @@ public class PhotoDataManager : NSObject {
     public var photoArrayWithCursor: Array<PhotoDataObject> = Array<PhotoDataObject>()
     var photoArrayCursorFetchingInProgress = false
     
-    let fetchSize = 200
+    let thumbnailImagesfetchSize = 200
     var fetchIndex = 0
     
     init(urlString: String) {
@@ -98,7 +98,7 @@ public class PhotoDataManager : NSObject {
                 }
                 return
             }
-            var toIndex = self.fetchIndex+self.fetchSize
+            var toIndex = self.fetchIndex+self.thumbnailImagesfetchSize
             if toIndex > (self.photoArray.count - 1) {
                 toIndex = self.photoArray.count
             }
@@ -107,7 +107,7 @@ public class PhotoDataManager : NSObject {
             // loadImages from self.fetchIndex to toIndex
             let array = Array(slice)
             let imageUrlArray = array.map { URL(string: $0.thumbnailUrlString!)! }
-            self.fetchIndex = self.fetchIndex+self.fetchSize
+            self.fetchIndex = self.fetchIndex+self.thumbnailImagesfetchSize
             
             self.prefetchPhotoImages(imageUrlArray: imageUrlArray, completion: { (completedResource) in
                 // Custom code if necessary
