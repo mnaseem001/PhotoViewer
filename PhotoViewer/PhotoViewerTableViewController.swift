@@ -5,18 +5,28 @@
 //  Created by Mansoor Naseem on 6/14/17.
 //  Copyright © 2017 Mansoor Naseem. All rights reserved.
 //
+//  PhotoViewerTableViewController: Landing View Controller that shows list of
+//  photo items fetched from server.
+//
 
 import UIKit
 import PhotoDataManager
 
 class PhotoViewerTableViewController: UITableViewController {
     
+    // Partial data fetched from PhotoDataManager
     public var photoArray: Array<PhotoDataObject> = Array<PhotoDataObject>()
+    
+    // To stop from multiple pull to refresh at the same time
     var refreshInProgress = false
+    
+    // Use to Refresh all the data for the App
     var refreshButton: UIBarButtonItem?
     
     override func viewDidLoad() {
         tableView.dataSource = self
+        
+        // Notifications when All data (photoArray) and partial chuncks of data (CursorArray) fetched by PhotoDataManager
         NotificationCenter.default.addObserver(self, selector: #selector(PhotoViewerTableViewController.handleFetchDataDone(notification:)), name: Notification.Name(PhotoViewerConstants.kNotificationFetchedPhotosDone), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(PhotoViewerTableViewController.handleFetchDataFailed(notification:)), name: Notification.Name(PhotoViewerConstants.kNotificationFetchedPhotosFailed), object: nil)
@@ -33,14 +43,10 @@ class PhotoViewerTableViewController: UITableViewController {
         
     }
 
-
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.navigationController?.navigationBar.topItem?.title = "Photos"
-        
-
     }
     
     override func viewWillLayoutSubviews() {
@@ -58,6 +64,8 @@ class PhotoViewerTableViewController: UITableViewController {
         cell.textLabel?.lineBreakMode = .byWordWrapping;
         cell.textLabel?.numberOfLines = 0;
         if let thumbnailUrlString = photoObject.thumbnailUrlString {
+            
+            // Fetch Thumbnail image and most likely prefetched and in cache
             manager.fetchImage(urlString: thumbnailUrlString) { (image) in
                 if let image = image {
                     cell.imageView?.image = image
@@ -74,6 +82,7 @@ class PhotoViewerTableViewController: UITableViewController {
         return cell
     }
     
+    // Push PhotoViewDetailViewController for the photoData Object to show the details
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let detailViewController = storyboard.instantiateViewController(withIdentifier: "PhotoViewDetailViewController") as! PhotoViewDetailViewController
@@ -82,6 +91,7 @@ class PhotoViewerTableViewController: UITableViewController {
         
     }
     
+    // Pull to Refresh fetched only chunk of photo objects and in reverse order
     @IBAction func refresh(_ sender: UIRefreshControl) {
         guard refreshInProgress == false else {
             return
@@ -102,6 +112,7 @@ class PhotoViewerTableViewController: UITableViewController {
         }
     }
     
+    // Private function to add refresh button on Nav bar
     fileprivate func setupNavBarItems() {
         refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(didTapRefreshButton))
         refreshButton?.isEnabled = false
@@ -110,8 +121,9 @@ class PhotoViewerTableViewController: UITableViewController {
         
     }
     
+    // Loads Initial data from server using PhotoDataManager
     fileprivate func loadInitialPhotoDataArray() {
-        // Use the PhotoDataManager Package
+        // Uses the PhotoDataManager Package
         // Get sharedInstance (a singleton)
         // - use the server url dependency for this app
         // After fetch is done successful or failed send notification
@@ -127,6 +139,8 @@ class PhotoViewerTableViewController: UITableViewController {
             
             self.refreshButton?.isEnabled = true
             if error == nil {
+                
+                // Notification sent so now fetch for smaller chunks can begin
                 NotificationCenter.default.post(name: Notification.Name(PhotoViewerConstants.kNotificationFetchedPhotosDone), object: nil)
                 // Prefetch All images
                 manager.loadImages {
@@ -135,6 +149,7 @@ class PhotoViewerTableViewController: UITableViewController {
                 
             } else {
                 
+                // Show errors in case of connection or someother error
                 self.showFetchDataError(error: error)
                 NotificationCenter.default.post(name: Notification.Name(PhotoViewerConstants.kNotificationFetchedPhotosFailed), object: nil)
                 
@@ -143,15 +158,17 @@ class PhotoViewerTableViewController: UITableViewController {
         }
     }
     
+    // Tap to Action for refresh button
     func didTapRefreshButton() {
+        
+        // load data again and wipe out old one
         loadInitialPhotoDataArray()
     }
 }
 
 extension PhotoViewerTableViewController {
-    
 
-
+    // Fetches only portion of data
     fileprivate func fetchData() {
         let manager = PhotoDataManager.sharedInstance
         manager.fetchPhotoDataWithCursor { (cursorArray, error) in
@@ -160,10 +177,12 @@ extension PhotoViewerTableViewController {
         }
     }
     
+    // notification handler method to start smaller chunk data fetch
     func handleFetchDataDone(notification: Notification){
         self.fetchData()
     }
     
+    // handle when portion of the data fetch failed
     func handleFetchDataFailed(notification: Notification){
 
         // Show alert and ask user to pull to refresh
@@ -183,7 +202,7 @@ extension PhotoViewerTableViewController {
         }
     }
     
-    //kNotificationFetchedPhotoArrayFailure
+    // handle notification when All Data Fetch failed
     func handleFetchedPhotoArrayFailure(notification: Notification){
 
         
@@ -203,7 +222,6 @@ extension PhotoViewerTableViewController {
 
     }
     
-    //kNotificationFetchedCursorPhotoArrayFailure
     func handleFetchedCursorPhotoArrayFailure(notification: Notification){
         
         self.refreshControl?.endRefreshing()

@@ -32,6 +32,8 @@ class PhotoViewDetailViewController: UIViewController {
             photoTitleLabel.text = photoTitle
             if let urlString = photoObject.urlString {
                 let manager = PhotoDataManager.sharedInstance
+                
+                // Fetch image on demand
                 manager.fetchImage(urlString: urlString) { (image) in
                     self.photoMainImageView.image = image
                 }

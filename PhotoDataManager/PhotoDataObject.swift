@@ -21,6 +21,7 @@ public struct PhotoDataObject: Mappable {
         
     }
     
+    // ObjectMapper automatically parses json into properties
     public mutating func mapping(map: Map) {
         albumId 	<- map["albumId"]
         feedObjectId 	<- map["id"]

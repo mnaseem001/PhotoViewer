@@ -36,26 +36,32 @@ public class PhotoDataManager : NSObject {
     public var photoArrayWithCursor: Array<PhotoDataObject> = Array<PhotoDataObject>()
     var photoArrayCursorFetchingInProgress = false
     
+    // Prefetch configuration. Fetch 200 thumbnails at a time
     let thumbnailImagesfetchSize = 200
     var thumbnailImagesfetchIndex = 0
     
+    // Use configurable Url String
     init(urlString: String) {
         
         feedUrlString = urlString
         super.init()
         
+        // Set ImageCache to Number of MB and number of days to cache images
         ImageCache.default.maxDiskCacheSize = 1024 * 1024 * kMaxDiskCacheSizeMegabytes
         ImageCache.default.maxCachePeriodInSecond = 60 * 60 * 24 * kMaxCachePeriodInDays
     }
     
-    public static let sharedInstance = PhotoDataManager(urlString: "http://jsonplaceholder.typicode.com/photos")
+    // use default from constants
+    public static let sharedInstance = PhotoDataManager(urlString: PhotoDataManagerConstants.kDefaultPhotoServerUrlString)
     
+    // Singleton call and initialize with new URL
     public static func sharedInstanceWith(urlString: String) -> PhotoDataManager {
         let instance = PhotoDataManager.sharedInstance
         instance.feedUrlString = urlString
         return instance
     }
     
+    // THIS IS THE MAIN METHOD TO FETCH ALL DATA FOR THE APP
     public func fetchPhotoData(completion: @escaping (Array<PhotoDataObject>?, Error?) -> Void)  {
         
         // No need to fetch if last fetch size is equal to size of actual size
@@ -65,6 +71,7 @@ public class PhotoDataManager : NSObject {
             return
         }
         
+        // Alamofire and Object mapper fetch data and parse into a struct (PhotoDataObject) automatically
         Alamofire.request(feedUrlString).responseArray { (response: DataResponse<[PhotoDataObject]>) in
             
             // Reset photoArrayWithCursor
@@ -79,15 +86,19 @@ public class PhotoDataManager : NSObject {
                     
                 }
                 completion(self.photoArray,nil)
+                
+                // Fire Success Notification
                 NotificationCenter.default.post(name: Notification.Name(PhotoDataManagerConstants.kNotificationFetchedPhotoArraySuccess), object: nil)
             case .failure(let error):
                 completion(self.photoArray,error)
+                
+                // Fire failure notification
                 NotificationCenter.default.post(name: Notification.Name(PhotoDataManagerConstants.kNotificationFetchedPhotoArrayFailure), object: nil)
             }
         }
     }
     
-
+    // PREFETCHES ALL THUMBNAIL IMAGE A CHUNK AT A TIME
     public func loadImages(completion: @escaping () -> Void) {
         DispatchQueue.global(qos: .default).async {
             
@@ -117,10 +128,9 @@ public class PhotoDataManager : NSObject {
                 })
             })
         }
-
-        
     }
     
+    // Actual method to pretch images for a chunk
     public func prefetchPhotoImages(imageUrlArray: Array<URL>, completion: @escaping (_ completedResources: [Resource]) -> Void) {
 
         let prefetcher = ImagePrefetcher(urls: imageUrlArray, options: nil, progressBlock: { (skippedResources, failedResources, completedResources) in
@@ -141,7 +151,7 @@ public class PhotoDataManager : NSObject {
     }
     
     
-    
+    // Fetch image and cache it individually
     public func fetchImage(urlString: String, completion: @escaping (_ image: UIImage?) -> Void) {
         ImageCache.default.retrieveImage(forKey: urlString, options: nil) {
             image, cacheType in
@@ -174,6 +184,7 @@ public class PhotoDataManager : NSObject {
     }
     
     
+    // Fetch only a portion of data in an order and in reverse
     public func fetchPhotoDataWithCursor(completion: @escaping (Array<PhotoDataObject>?, Error?) -> Void)  {
         
         if self.photoArray.isEmpty {
@@ -193,6 +204,7 @@ public class PhotoDataManager : NSObject {
 
     }
     
+    // Breaks whole complete data (photoArray) into a chunk for current index
     fileprivate func fetchPhotoDataWithCursorInternal(completion: @escaping (Array<PhotoDataObject>?, Error?) -> Void)  {
     
         DispatchQueue.global(qos: .default).async {
@@ -221,7 +233,7 @@ public class PhotoDataManager : NSObject {
         }
     }
     
-    
+    // This clears all image cache. Used mainly for Tests
     public func clearImageCache() {
         // Clear memory cache right away.
         ImageCache.default.clearMemoryCache()
@@ -233,6 +245,7 @@ public class PhotoDataManager : NSObject {
         ImageCache.default.cleanExpiredDiskCache()
     }
     
+    // This resets photoArrayWithCursor so data again start from initial chunk
     public func resetPhotoArrayCursor() {
         // Reset photoArrayWithCursor
         self.photoArrayCursorIndex = 0
