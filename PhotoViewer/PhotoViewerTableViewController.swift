@@ -17,7 +17,6 @@ class PhotoViewerTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         tableView.dataSource = self
-        tableView.rowHeight = UITableViewAutomaticDimension
         NotificationCenter.default.addObserver(self, selector: #selector(PhotoViewerTableViewController.handleFetchDataDone(notification:)), name: Notification.Name(PhotoViewerConstants.kNotificationFetchedPhotosDone), object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(PhotoViewerTableViewController.handleFetchDataFailed(notification:)), name: Notification.Name(PhotoViewerConstants.kNotificationFetchedPhotosFailed), object: nil)
@@ -54,9 +53,12 @@ class PhotoViewerTableViewController: UITableViewController {
         cell.textLabel?.numberOfLines = 0;
         if let thumbnailUrlString = photoObject.thumbnailUrlString {
             manager.fetchImage(urlString: thumbnailUrlString) { (image) in
-                cell.imageView?.image = image
+                if let image = image {
+                    cell.imageView?.image = image
+                }
                 if let photoId = photoObject.feedObjectId, let photoTitle = photoObject.title, let albumId = photoObject.albumId {
-                    cell.textLabel?.text = "ID: \(String(describing: photoId)) - Album ID: \(albumId). \(String(describing: photoTitle))"
+                    cell.textLabel?.text = "\(String(describing: photoTitle))"
+                    cell.detailTextLabel?.text = "ID: \(String(describing: photoId)) - Album ID: \(albumId)"
                 }
             }
         }
