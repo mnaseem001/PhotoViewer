@@ -23,12 +23,21 @@ public class PhotoDataManager : NSObject {
     
     public var photoArray: Array<PhotoDataObject> = Array<PhotoDataObject>()
     
+    // This is an initial max Int number to make sure photo data is fetch on first call
+    // Subsequently the size will be changed to actual size
+    // Note: "FETCHED" Size 
+    //
+    var photoArrayFetchedSize = Int.max
+    
     public var photoArrayCursorIndex = 0
     
     // Album ID's look like they are 50
     public var photoArrayCursorFetchSize = 100
     public var photoArrayWithCursor: Array<PhotoDataObject> = Array<PhotoDataObject>()
     var photoArrayCursorFetchingInProgress = false
+    
+    let fetchSize = 200
+    var fetchIndex = 0
     
     init(urlString: String) {
         
@@ -49,6 +58,13 @@ public class PhotoDataManager : NSObject {
     
     public func fetchPhotoData(completion: @escaping (Array<PhotoDataObject>?, Error?) -> Void)  {
         
+        // No need to fetch if last fetch size is equal to size of actual size
+        // Technically it could be just greater than zero
+        if self.photoArray.count == self.photoArrayFetchedSize {
+            completion(self.photoArray,nil)
+            return
+        }
+        
         Alamofire.request(feedUrlString).responseArray { (response: DataResponse<[PhotoDataObject]>) in
             
             // Reset photoArrayWithCursor
@@ -58,9 +74,9 @@ public class PhotoDataManager : NSObject {
             case .success:
                 if let tempPhotoArray = response.result.value {
                     self.photoArray = tempPhotoArray
+                    self.photoArrayFetchedSize = self.photoArray.count
+                    self.fetchIndex = 0
                     
-//                    let slice = tempPhotoArray[0...601]
-//                    self.photoArray = Array(slice)
                 }
                 completion(self.photoArray,nil)
                 NotificationCenter.default.post(name: Notification.Name(PhotoDataManagerConstants.kNotificationFetchedPhotoArraySuccess), object: nil)
@@ -71,8 +87,7 @@ public class PhotoDataManager : NSObject {
         }
     }
     
-    let fetchSize = 200
-    var fetchIndex = 0
+
     public func loadImages() {
         DispatchQueue.global(qos: .default).async {
             
@@ -98,12 +113,7 @@ public class PhotoDataManager : NSObject {
         
     }
     
-    func prefetchPhotoImages(imageUrlArray: Array<URL>, completion: @escaping (_ completedResources: [Resource]) -> Void) {
-        
-
-        
-//        let slice = imageUrlArray[0...933]
-//        let array = Array(slice)
+    public func prefetchPhotoImages(imageUrlArray: Array<URL>, completion: @escaping (_ completedResources: [Resource]) -> Void) {
 
         let prefetcher = ImagePrefetcher(urls: imageUrlArray, options: nil, progressBlock: { (skippedResources, failedResources, completedResources) in
             //print("Prefetched: \(skippedResources.count) \(failedResources.count) \(completedResources.count) ")
