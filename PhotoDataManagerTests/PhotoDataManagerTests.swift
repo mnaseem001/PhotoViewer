@@ -104,141 +104,131 @@ class PhotoDataManagerTests: XCTestCase {
     
     func testFetchPhotoDataWithCursor() {
         
-        for index in 1...50 {
-            let manager = PhotoDataManager.sharedInstanceWith(urlString: kPhotoServerUrlString)
-            manager.photoArrayCursorIndex = 0
-            manager.photoArrayWithCursor.removeAll()
-            let cursorExpectation = expectation(description: "Completion handler when data is fetched using cursor")
-            fetchPhotoDataWithCursor(cursorExpectation: cursorExpectation)
-            
-            waitForExpectations(timeout: 10.0) { (error) in
-                
-            }
-            
-            sleep(1)
+        let manager = PhotoDataManager.sharedInstanceWith(urlString: kPhotoServerUrlString)
+        manager.photoArrayCursorIndex = 0
+        manager.photoArrayWithCursor.removeAll()
+        let cursorExpectation = expectation(description: "Completion handler when data is fetched using cursor")
+        fetchPhotoDataWithCursor(cursorExpectation: cursorExpectation)
+        
+        waitForExpectations(timeout: 10.0) { (error) in
             
         }
 
     }
     
-//    func testFetchPhotoImages() {
-//
-//        let prefectImagesExpectation = expectation(description: "Completion handler when all images are prefetched")
-//        let manager = PhotoDataManager.sharedInstanceWith(urlString: kPhotoServerUrlString)
-//
-//        guard manager.photoArray.count > 0 else {
-//            XCTFail("photoDataArray is empty. No need for further tests.")
-//            return
-//        }
-//        
-//        // remove all images from cache
-//        // then do the fetch
-//        manager.clearImageCache()
-//        NSLog("START DOWNLOAD");
-//        manager.loadImages {
-//            NSLog("END DOWNLOAD");
-//            prefectImagesExpectation.fulfill()
-//        }
-//
-//        
-//        
-//        waitForExpectations(timeout: 120.0) { (error) in
-//            
-//        }
-//        
-//        
-//    }
+    func testFetchPhotoImages() {
+
+        let prefectImagesExpectation = expectation(description: "Completion handler when all images are prefetched")
+        let manager = PhotoDataManager.sharedInstanceWith(urlString: kPhotoServerUrlString)
+
+        guard manager.photoArray.count > 0 else {
+            XCTFail("photoDataArray is empty. No need for further tests.")
+            return
+        }
+        
+        // remove all images from cache
+        // then do the fetch
+        manager.clearImageCache()
+        
+        // START DOWNLOAD of Images
+        manager.loadImages {
+            // END DOWNLOAD of Images
+            prefectImagesExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 120.0) { (error) in
+            
+        }
+        
+    }
     
-//    func testSingleImageDownloadForThumbnail() {
-//        
-//        let fetchImageExpectation = expectation(description: "Completion handler when image is fetched")
-//        let manager = PhotoDataManager.sharedInstanceWith(urlString: self.kPhotoServerUrlString)
-//        guard manager.photoArray.count > 0 else {
-//            XCTFail("photoDataArray is empty. No need for further tests.")
-//            return
-//        }
-//        
-//        // Test if an object in photoDataArray is a PhotoDataObject
-//        //
-//        let photoObject = manager.photoArray[0]
-//        XCTAssertTrue((photoObject as Any) is PhotoDataObject, "Objects from photoDataArray should be PhotoDataObject types")
-//        
-//        
-//        guard let thumbnailUrl = photoObject.thumbnailUrlString else {
-//            XCTFail("thumbnailUrl should never be nil. no need to do further testing")
-//            return
-//        }
-//        
-//        
-//        manager.fetchImage(urlString: thumbnailUrl) { (image) in
-//            fetchImageExpectation.fulfill()
-//        }
-//        
-//        waitForExpectations(timeout: 5.0) { (error) in
-//            
-//        }
-//        
-//    }
-//    
-//    func testSingleImageDownloadForRegularImage() {
-//        
-//        let fetchImageExpectation = expectation(description: "Completion handler when image is fetched")
-//        let manager = PhotoDataManager.sharedInstanceWith(urlString: self.kPhotoServerUrlString)
-//        guard manager.photoArray.count > 0 else {
-//            XCTFail("photoDataArray is empty. No need for further tests.")
-//            return
-//        }
-//        
-//        // Test if an object in photoDataArray is a PhotoDataObject
-//        //
-//        let photoObject = manager.photoArray[0]
-//        XCTAssertTrue((photoObject as Any) is PhotoDataObject, "Objects from photoDataArray should be PhotoDataObject types")
-//        
-//        guard let imageUrl = photoObject.urlString else {
-//            XCTFail("urlString should never be nil. no need to do further testing")
-//            return
-//        }
-//        
-//        
-//        manager.fetchImage(urlString: imageUrl) { (image) in
-//            fetchImageExpectation.fulfill()
-//        }
-//        
-//        waitForExpectations(timeout: 5.0) { (error) in
-//            
-//        }
-//        
-//    }
-//    
-//    
-//    
-//    
-//    
-//
-//    func testPerformanceFetchingImages() {
-//        
-//        let manager = PhotoDataManager.sharedInstanceWith(urlString: self.kPhotoServerUrlString)
-//        guard manager.photoArray.count > 0 else {
-//            XCTFail("photoDataArray is empty. No need for further tests.")
-//            return
-//        }
-//        
-//        self.measureMetrics(PhotoDataManagerTests.self.defaultPerformanceMetrics(), automaticallyStartMeasuring: true) {
-//            
-//            let feedExpectation = self.expectation(description: "Completion handler when data is fetched")
-//
-//            // remove all images from cache
-//            // then do the fetch
-//            //manager.clearImageCache()
-//            NSLog("START DOWNLOAD");
-//            manager.loadImages {
-//                NSLog("END DOWNLOAD");
-//                feedExpectation.fulfill()
-//            }
-//            
-//            self.waitForExpectations(timeout: 120.0) { (error) in
-//                self.stopMeasuring()
-//            }
-//        }
-//    }
+    func testSingleImageDownloadForThumbnail() {
+        
+        let fetchImageExpectation = expectation(description: "Completion handler when image is fetched")
+        let manager = PhotoDataManager.sharedInstanceWith(urlString: self.kPhotoServerUrlString)
+        guard manager.photoArray.count > 0 else {
+            XCTFail("photoDataArray is empty. No need for further tests.")
+            return
+        }
+        
+        // Test if an object in photoDataArray is a PhotoDataObject
+        //
+        let photoObject = manager.photoArray[0]
+        XCTAssertTrue((photoObject as Any) is PhotoDataObject, "Objects from photoDataArray should be PhotoDataObject types")
+        
+        
+        guard let thumbnailUrl = photoObject.thumbnailUrlString else {
+            XCTFail("thumbnailUrl should never be nil. no need to do further testing")
+            return
+        }
+        
+        
+        manager.fetchImage(urlString: thumbnailUrl) { (image) in
+            fetchImageExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 5.0) { (error) in
+            
+        }
+        
+    }
+    
+    func testSingleImageDownloadForRegularImage() {
+        
+        let fetchImageExpectation = expectation(description: "Completion handler when image is fetched")
+        let manager = PhotoDataManager.sharedInstanceWith(urlString: self.kPhotoServerUrlString)
+        guard manager.photoArray.count > 0 else {
+            XCTFail("photoDataArray is empty. No need for further tests.")
+            return
+        }
+        
+        // Test if an object in photoDataArray is a PhotoDataObject
+        //
+        let photoObject = manager.photoArray[0]
+        XCTAssertTrue((photoObject as Any) is PhotoDataObject, "Objects from photoDataArray should be PhotoDataObject types")
+        
+        guard let imageUrl = photoObject.urlString else {
+            XCTFail("urlString should never be nil. no need to do further testing")
+            return
+        }
+        
+        
+        manager.fetchImage(urlString: imageUrl) { (image) in
+            fetchImageExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 5.0) { (error) in
+            
+        }
+        
+    }
+    
+    
+    // This method is unchecked in the Schemes because Performance tests
+    // run 10 times.  It takes about a minute to fetch 5000 images and thus
+    // it will take at least 10 minutes to run this performance test
+    func testPerformanceFetchingImages() {
+        
+        let manager = PhotoDataManager.sharedInstanceWith(urlString: self.kPhotoServerUrlString)
+        guard manager.photoArray.count > 0 else {
+            XCTFail("photoDataArray is empty. No need for further tests.")
+            return
+        }
+        
+        self.measureMetrics(PhotoDataManagerTests.self.defaultPerformanceMetrics(), automaticallyStartMeasuring: true) {
+            
+            let feedExpectation = self.expectation(description: "Completion handler when data is fetched")
+
+            // remove all images from cache
+            // then do the fetch
+            manager.clearImageCache()
+            manager.loadImages {
+                feedExpectation.fulfill()
+            }
+            
+            self.waitForExpectations(timeout: 120.0) { (error) in
+                self.stopMeasuring()
+            }
+        }
+    }
 }

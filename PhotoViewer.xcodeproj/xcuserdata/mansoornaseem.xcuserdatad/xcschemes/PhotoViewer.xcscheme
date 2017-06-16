@@ -38,6 +38,21 @@
                ReferencedContainer = "container:PhotoViewer.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "71AFE0391EF08EF200C5BB26"
+               BuildableName = "PhotoDataManagerTests.xctest"
+               BlueprintName = "PhotoDataManagerTests"
+               ReferencedContainer = "container:PhotoViewer.xcodeproj">
+            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "PhotoDataManagerTests/testPerformanceFetchingImages()">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

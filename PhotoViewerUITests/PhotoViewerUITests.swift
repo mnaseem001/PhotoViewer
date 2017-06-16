@@ -12,19 +12,11 @@ class PhotoViewerUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
@@ -38,8 +30,6 @@ class PhotoViewerUITests: XCTestCase {
         // often changes and loading of same data in the tables can
         // be in different order.
         
-        
-        
         let app = XCUIApplication()
         
         let exists = NSPredicate(format: "exists == 1")
@@ -52,7 +42,6 @@ class PhotoViewerUITests: XCTestCase {
                 assertionFailure("error")
             }
         }
-
 
         // Below are test to show that values in labels can be tested
         // This test value is checking if text is same for the cell label
@@ -92,9 +81,6 @@ class PhotoViewerUITests: XCTestCase {
         XCTAssertEqual(photoStaticText, PhotoIdLabel.label)
         
         sleep(10)
-        
-        
-        
     }
     
     // Snippet of code that finds a cell and Taps it

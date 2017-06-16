@@ -37,7 +37,7 @@ public class PhotoDataManager : NSObject {
     var photoArrayCursorFetchingInProgress = false
     
     let thumbnailImagesfetchSize = 200
-    var fetchIndex = 0
+    var thumbnailImagesfetchIndex = 0
     
     init(urlString: String) {
         
@@ -75,7 +75,7 @@ public class PhotoDataManager : NSObject {
                 if let tempPhotoArray = response.result.value {
                     self.photoArray = tempPhotoArray
                     self.photoArrayFetchedSize = self.photoArray.count
-                    self.fetchIndex = 0
+                    self.thumbnailImagesfetchIndex = 0
                     
                 }
                 completion(self.photoArray,nil)
@@ -91,23 +91,23 @@ public class PhotoDataManager : NSObject {
     public func loadImages(completion: @escaping () -> Void) {
         DispatchQueue.global(qos: .default).async {
             
-            if self.fetchIndex >= (self.photoArray.count - 1 ) {
+            if self.thumbnailImagesfetchIndex >= (self.photoArray.count - 1 ) {
                 
                 DispatchQueue.main.async {
                     completion()
                 }
                 return
             }
-            var toIndex = self.fetchIndex+self.thumbnailImagesfetchSize
+            var toIndex = self.thumbnailImagesfetchIndex+self.thumbnailImagesfetchSize
             if toIndex > (self.photoArray.count - 1) {
                 toIndex = self.photoArray.count
             }
-            let slice = self.photoArray[self.fetchIndex..<toIndex]
+            let slice = self.photoArray[self.thumbnailImagesfetchIndex..<toIndex]
             
             // loadImages from self.fetchIndex to toIndex
             let array = Array(slice)
             let imageUrlArray = array.map { URL(string: $0.thumbnailUrlString!)! }
-            self.fetchIndex = self.fetchIndex+self.thumbnailImagesfetchSize
+            self.thumbnailImagesfetchIndex = self.thumbnailImagesfetchIndex+self.thumbnailImagesfetchSize
             
             self.prefetchPhotoImages(imageUrlArray: imageUrlArray, completion: { (completedResource) in
                 // Custom code if necessary

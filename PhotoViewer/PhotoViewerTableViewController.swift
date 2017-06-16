@@ -103,7 +103,7 @@ class PhotoViewerTableViewController: UITableViewController {
     }
     
     fileprivate func setupNavBarItems() {
-        refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(didTapEditButton))
+        refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(didTapRefreshButton))
         refreshButton?.isEnabled = false
         self.navigationItem.rightBarButtonItem = refreshButton
         self.navigationController?.navigationBar.topItem?.rightBarButtonItem = refreshButton
@@ -119,6 +119,10 @@ class PhotoViewerTableViewController: UITableViewController {
         // - Takes rougly over 67 seconds to download 5000 thumbnail images on a very good WIFI
         // - NOTE: Prefetch may need be turned off in case network issue
         let manager = PhotoDataManager.sharedInstanceWith(urlString: PhotoViewerConstants.kPhotoServerUrlString)
+        
+        // Remove all data from cache
+        manager.photoArray.removeAll()
+        
         manager.fetchPhotoData { (photoDataArray, error) in
             
             self.refreshButton?.isEnabled = true
@@ -139,7 +143,7 @@ class PhotoViewerTableViewController: UITableViewController {
         }
     }
     
-    func didTapEditButton() {
+    func didTapRefreshButton() {
         loadInitialPhotoDataArray()
     }
 }
