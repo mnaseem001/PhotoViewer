@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PhotoViewer/PhotoViewerTableViewController.swift"
-            timestampString = "519275563.528335"
+            timestampString = "519298761.680848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
             landmarkName = "handleFetchedCursorPhotoArrayFailure(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PhotoViewer/PhotoViewerTableViewController.swift"
-            timestampString = "519275563.528335"
+            timestampString = "519298761.680848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
             landmarkName = "handleFetchedPhotoArrayFailure(notification:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PhotoViewer/PhotoViewerTableViewController.swift"
-            timestampString = "519275563.528335"
+            timestampString = "519296725.382164"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "refresh(_:)"
             landmarkType = "7">
             <Locations>
@@ -58,12 +58,12 @@
                   moduleName = "PhotoViewer"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mansoornaseem/workbench/latest/0613/PhotoViewer/PhotoViewer/PhotoViewerTableViewController.swift"
-                  timestampString = "519276757.006602"
+                  timestampString = "519298826.591685"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "81"
-                  endingLineNumber = "81"
-                  offsetFromSymbolStart = "119">
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "136">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -73,12 +73,12 @@
                   moduleName = "PhotoViewer"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mansoornaseem/workbench/latest/0613/PhotoViewer/PhotoViewer/PhotoViewerTableViewController.swift"
-                  timestampString = "519276757.008157"
+                  timestampString = "519298826.593498"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "83"
-                  endingLineNumber = "83"
-                  offsetFromSymbolStart = "27">
+                  startingLineNumber = "93"
+                  endingLineNumber = "93"
+                  offsetFromSymbolStart = "28">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -90,140 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PhotoViewer/PhotoViewerTableViewController.swift"
-            timestampString = "519275563.528335"
+            timestampString = "519298761.680848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "refresh(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PhotoViewer.PhotoViewerTableViewController.(refresh (__ObjC.UIRefreshControl) -&gt; ()).(closure #1)"
-                  moduleName = "PhotoViewer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mansoornaseem/workbench/latest/0613/PhotoViewer/PhotoViewer/PhotoViewerTableViewController.swift"
-                  timestampString = "519276757.011972"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "83"
-                  endingLineNumber = "83"
-                  offsetFromSymbolStart = "27">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PhotoViewer.PhotoViewerTableViewController.(refresh (__ObjC.UIRefreshControl) -&gt; ()).(closure #1)"
-                  moduleName = "PhotoViewer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mansoornaseem/workbench/latest/0613/PhotoViewer/PhotoViewer/PhotoViewerTableViewController.swift"
-                  timestampString = "519276757.01359"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "83"
-                  endingLineNumber = "83"
-                  offsetFromSymbolStart = "75">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoDataManager/PhotoDataManager.swift"
-            timestampString = "519276321.953198"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "fetchPhotoData(completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PhotoDataManager.PhotoDataManager.fetchPhotoData (completion : (Swift.Optional&lt;Swift.Array&lt;PhotoDataManager.PhotoDataObject&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "PhotoDataManager"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mansoornaseem/workbench/latest/0613/PhotoViewer/PhotoDataManager/PhotoDataManager.swift"
-                  timestampString = "519276757.24514"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "246">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "PhotoDataManager.PhotoDataManager.(fetchPhotoData (completion : (Swift.Optional&lt;Swift.Array&lt;PhotoDataManager.PhotoDataObject&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; ()) -&gt; ()).(closure #1)"
-                  moduleName = "PhotoDataManager"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mansoornaseem/workbench/latest/0613/PhotoViewer/PhotoDataManager/PhotoDataManager.swift"
-                  timestampString = "519276757.247043"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "180">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoViewer/AppDelegate.swift"
-            timestampString = "519275739.637709"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "applicationDidBecomeActive(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoDataManager/PhotoDataManager.swift"
-            timestampString = "519276360.079629"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "loadImages()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PhotoDataManager/PhotoDataManager.swift"
-            timestampString = "519276393.292368"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
-            landmarkName = "loadImages()"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "didTapRefreshButton()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
