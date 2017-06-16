@@ -15,4 +15,7 @@ struct PhotoViewerConstants {
     
     // Notification to let observers know initial json has been fetched from server
     static let kNotificationFetchedPhotosDone = "kNotificationFetchedPhotosDone"
+    
+    // Notification to let observers know initial json fetch has failed
+    static let kNotificationFetchedPhotosFailed = "kNotificationFetchedPhotosFailed"
 }
