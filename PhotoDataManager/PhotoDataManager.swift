@@ -28,6 +28,7 @@ public class PhotoDataManager : NSObject {
     // Album ID's look like they are 50
     public var photoArrayCursorFetchSize = 100
     public var photoArrayWithCursor: Array<PhotoDataObject> = Array<PhotoDataObject>()
+    var photoArrayCursorFetchingInProgress = false
     
     init(urlString: String) {
         
@@ -62,21 +63,48 @@ public class PhotoDataManager : NSObject {
 //                    self.photoArray = Array(slice)
                 }
                 completion(self.photoArray,nil)
+                NotificationCenter.default.post(name: Notification.Name(PhotoDataManagerConstants.kNotificationFetchedPhotoArraySuccess), object: nil)
             case .failure(let error):
                 completion(self.photoArray,error)
+                NotificationCenter.default.post(name: Notification.Name(PhotoDataManagerConstants.kNotificationFetchedPhotoArrayFailure), object: nil)
             }
         }
     }
     
-    public func prefetchPhotoImages(completion: @escaping (_ completedResources: [Resource]) -> Void) {
-        
-        let imageUrlArray = self.photoArray.map { URL(string: $0.thumbnailUrlString!)!
+    let fetchSize = 200
+    var fetchIndex = 0
+    public func loadImages() {
+        DispatchQueue.global(qos: .default).async {
             
+            if self.fetchIndex >= (self.photoArray.count - 1 ) {
+                return
+            }
+            var toIndex = self.fetchIndex+self.fetchSize
+            if toIndex > (self.photoArray.count - 1) {
+                toIndex = self.photoArray.count
+            }
+            let slice = self.photoArray[self.fetchIndex..<toIndex]
+            print("loadImages >> \(self.fetchIndex)..<\(toIndex)")
+            let array = Array(slice)
+            let imageUrlArray = array.map { URL(string: $0.thumbnailUrlString!)! }
+            self.fetchIndex = self.fetchIndex+self.fetchSize
+            
+            self.prefetchPhotoImages(imageUrlArray: imageUrlArray, completion: { (completedResource) in
+                // Custom code if necessary
+                self.loadImages()
+            })
         }
+
         
-//        let slice = imageUrlArray[0...10]
+    }
+    
+    func prefetchPhotoImages(imageUrlArray: Array<URL>, completion: @escaping (_ completedResources: [Resource]) -> Void) {
+        
+
+        
+//        let slice = imageUrlArray[0...933]
 //        let array = Array(slice)
-        
+
         let prefetcher = ImagePrefetcher(urls: imageUrlArray, options: nil, progressBlock: { (skippedResources, failedResources, completedResources) in
             //print("Prefetched: \(skippedResources.count) \(failedResources.count) \(completedResources.count) ")
             
@@ -88,8 +116,10 @@ public class PhotoDataManager : NSObject {
         })
 
         prefetcher.start()
-        print()
+
     }
+    
+    
     
     public func fetchImage(urlString: String, completion: @escaping (_ image: UIImage?) -> Void) {
         ImageCache.default.retrieveImage(forKey: urlString, options: nil) {
@@ -124,6 +154,26 @@ public class PhotoDataManager : NSObject {
     
     
     public func fetchPhotoDataWithCursor(completion: @escaping (Array<PhotoDataObject>?, Error?) -> Void)  {
+        
+        if self.photoArray.isEmpty {
+            
+            fetchPhotoData(completion: { (array, error) in
+                self.fetchPhotoDataWithCursorInternal(completion: { (cursorArray, cursorError) in
+                    completion(cursorArray, cursorError)
+                })
+            })
+        } else {
+            
+            self.fetchPhotoDataWithCursorInternal(completion: { (cursorArray, cursorError) in
+                completion(cursorArray, cursorError)
+            })
+
+        }
+
+    }
+    
+    fileprivate func fetchPhotoDataWithCursorInternal(completion: @escaping (Array<PhotoDataObject>?, Error?) -> Void)  {
+    
         DispatchQueue.global(qos: .default).async {
             if self.photoArrayCursorIndex >= (self.photoArray.count - 1) {
                 completion(self.photoArrayWithCursor,nil)
@@ -144,11 +194,12 @@ public class PhotoDataManager : NSObject {
             let reversedArray = Array(self.photoArrayWithCursor.reversed())
             DispatchQueue.main.async {
                 completion(reversedArray, nil)
+                NotificationCenter.default.post(name: Notification.Name(PhotoDataManagerConstants.kNotificationFetchedCursorPhotoArraySuccess), object: nil)
             }
             
         }
-
     }
+    
     
     public func clearImageCache() {
         // Clear memory cache right away.

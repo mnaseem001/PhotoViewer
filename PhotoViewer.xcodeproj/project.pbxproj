@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		56A2B14CB0250B3A854C5800 /* Pods_PhotoDataManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13000A3119DD47B94D4AAAA2 /* Pods_PhotoDataManager.framework */; };
 		7108D2101EF2A76C001FDD60 /* PhotoViewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7108D20F1EF2A76C001FDD60 /* PhotoViewDetailViewController.swift */; };
+		7108D2121EF2D86C001FDD60 /* PhotoDataManagerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7108D2111EF2D86C001FDD60 /* PhotoDataManagerConstants.swift */; };
 		715C3AA91EF2376500B45D44 /* PhotoViewerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715C3AA81EF2376500B45D44 /* PhotoViewerTableViewController.swift */; };
 		715C3AAB1EF23B4C00B45D44 /* PhotoViewerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715C3AAA1EF23B4C00B45D44 /* PhotoViewerConstants.swift */; };
 		71AFE0001EF08ECC00C5BB26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFDFFF1EF08ECC00C5BB26 /* AppDelegate.swift */; };
@@ -84,6 +85,7 @@
 		13000A3119DD47B94D4AAAA2 /* Pods_PhotoDataManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoDataManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		332C79FB9EC625BEBF3A0B24 /* Pods_PhotoViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7108D20F1EF2A76C001FDD60 /* PhotoViewDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewDetailViewController.swift; sourceTree = "<group>"; };
+		7108D2111EF2D86C001FDD60 /* PhotoDataManagerConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDataManagerConstants.swift; sourceTree = "<group>"; };
 		715C3AA81EF2376500B45D44 /* PhotoViewerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewerTableViewController.swift; sourceTree = "<group>"; };
 		715C3AAA1EF23B4C00B45D44 /* PhotoViewerConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewerConstants.swift; sourceTree = "<group>"; };
 		71AFDFFC1EF08ECC00C5BB26 /* PhotoViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,6 +227,7 @@
 				71AFE0501EF090EB00C5BB26 /* PhotoDataManager.swift */,
 				71AFE0351EF08EF100C5BB26 /* Info.plist */,
 				71AFE0521EF0924D00C5BB26 /* PhotoDataObject.swift */,
+				7108D2111EF2D86C001FDD60 /* PhotoDataManagerConstants.swift */,
 			);
 			path = PhotoDataManager;
 			sourceTree = "<group>";
@@ -635,6 +638,7 @@
 			files = (
 				71AFE0511EF090EB00C5BB26 /* PhotoDataManager.swift in Sources */,
 				71AFE0531EF0924D00C5BB26 /* PhotoDataObject.swift in Sources */,
+				7108D2121EF2D86C001FDD60 /* PhotoDataManagerConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
