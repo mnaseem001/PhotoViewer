@@ -91,8 +91,6 @@ class PhotoViewerUITests: XCTestCase {
         PhotoIdLabel = cell.staticTexts["PhotoId"]
         XCTAssertEqual(photoStaticText, PhotoIdLabel.label)
         
-        print(PhotoIdLabel.label)
-        
         sleep(10)
         
         

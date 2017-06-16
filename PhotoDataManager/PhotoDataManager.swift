@@ -103,7 +103,8 @@ public class PhotoDataManager : NSObject {
                 toIndex = self.photoArray.count
             }
             let slice = self.photoArray[self.fetchIndex..<toIndex]
-            print("loadImages >> \(self.fetchIndex)..<\(toIndex)")
+            
+            // loadImages from self.fetchIndex to toIndex
             let array = Array(slice)
             let imageUrlArray = array.map { URL(string: $0.thumbnailUrlString!)! }
             self.fetchIndex = self.fetchIndex+self.fetchSize
@@ -123,11 +124,14 @@ public class PhotoDataManager : NSObject {
     public func prefetchPhotoImages(imageUrlArray: Array<URL>, completion: @escaping (_ completedResources: [Resource]) -> Void) {
 
         let prefetcher = ImagePrefetcher(urls: imageUrlArray, options: nil, progressBlock: { (skippedResources, failedResources, completedResources) in
+            
+            // Comment out to see the progress
             //print("Prefetched: \(skippedResources.count) \(failedResources.count) \(completedResources.count) ")
             
         }, completionHandler: { (skippedResources, failedResources, completedResources) in
-            print("Prefetched: \(skippedResources.count) \(failedResources.count) \(completedResources.count) ")
-            //print("These resources are prefetched: \(completedResources)")
+            
+            // Comment out to see result of prefecter
+            //print("Prefetched: \(skippedResources.count) \(failedResources.count) \(completedResources.count) ")
             completion(completedResources)
             
         })
@@ -203,8 +207,8 @@ public class PhotoDataManager : NSObject {
             }
             
             let slice = self.photoArray[self.photoArrayCursorIndex..<toIndex]
-            print("fetchPhotoDataWithCursor >> \(self.photoArrayCursorIndex)..<\(toIndex)")
             
+            // index is now moved to the TO Index
             self.photoArrayCursorIndex = self.photoArrayCursorIndex+self.photoArrayCursorFetchSize
             let array = Array(slice)
             self.photoArrayWithCursor.append(contentsOf: array)

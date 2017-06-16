@@ -32,29 +32,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "71AFE00F1EF08ECD00C5BB26"
-               BuildableName = "PhotoViewerTests.xctest"
-               BlueprintName = "PhotoViewerTests"
-               ReferencedContainer = "container:PhotoViewer.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "71AFE01A1EF08ECD00C5BB26"
                BuildableName = "PhotoViewerUITests.xctest"
                BlueprintName = "PhotoViewerUITests"
-               ReferencedContainer = "container:PhotoViewer.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "71AFE0391EF08EF200C5BB26"
-               BuildableName = "PhotoDataManagerTests.xctest"
-               BlueprintName = "PhotoDataManagerTests"
                ReferencedContainer = "container:PhotoViewer.xcodeproj">
             </BuildableReference>
          </TestableReference>
