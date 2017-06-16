@@ -174,11 +174,12 @@ class PhotoDataManagerTests: XCTestCase {
         // then do the fetch
         manager.clearImageCache()
         NSLog("START DOWNLOAD");
-        manager.prefetchPhotoImages { (completedResources) in
-
+        manager.loadImages {
             NSLog("END DOWNLOAD");
             prefectImagesExpectation.fulfill()
         }
+
+        
         
         waitForExpectations(timeout: 120.0) { (error) in
             
@@ -253,34 +254,30 @@ class PhotoDataManagerTests: XCTestCase {
     
     
 
-//    func testPerformanceExample() {
-//        
-//        let manager = PhotoDataManager.sharedInstanceWith(urlString: self.kPhotoServerUrlString)
-//        guard manager.photoArray.count > 0 else {
-//            XCTFail("photoDataArray is empty. No need for further tests.")
-//            return
-//        }
-//        
-//        self.measureMetrics(PhotoDataManagerTests.self.defaultPerformanceMetrics(), automaticallyStartMeasuring: true) {
-//            
-//            let feedExpectation = self.expectation(description: "Completion handler when data is fetched")
-//
-//            
-//            // remove all images from cache
-//            // then do the fetch
-//            manager.clearImageCache()
-//            NSLog("START DOWNLOAD");
-//            manager.prefetchPhotoImages { (completedResources) in
-//                
-//                //XCTAssert(completedResources != nil, "name should not be nil")
-//                //XCTAssertTrue((completedResources?.count)! > 0, "name should be Str")
-//                NSLog("END DOWNLOAD");
-//                feedExpectation.fulfill()
-//            }
-//            
-//            self.waitForExpectations(timeout: 120.0) { (error) in
-//                self.stopMeasuring()
-//            }
-//        }
-//    }
+    func testPerformanceFetchingImages() {
+        
+        let manager = PhotoDataManager.sharedInstanceWith(urlString: self.kPhotoServerUrlString)
+        guard manager.photoArray.count > 0 else {
+            XCTFail("photoDataArray is empty. No need for further tests.")
+            return
+        }
+        
+        self.measureMetrics(PhotoDataManagerTests.self.defaultPerformanceMetrics(), automaticallyStartMeasuring: true) {
+            
+            let feedExpectation = self.expectation(description: "Completion handler when data is fetched")
+
+            // remove all images from cache
+            // then do the fetch
+            //manager.clearImageCache()
+            NSLog("START DOWNLOAD");
+            manager.loadImages {
+                NSLog("END DOWNLOAD");
+                feedExpectation.fulfill()
+            }
+            
+            self.waitForExpectations(timeout: 120.0) { (error) in
+                self.stopMeasuring()
+            }
+        }
+    }
 }
