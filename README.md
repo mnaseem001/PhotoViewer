@@ -3,12 +3,12 @@
 ### Requirements:
 
  * Build a simple photo viewing app for iOS
- * The deployment target must be iOS 9.0+.
+ * The deployment target must be iOS 9.0+ and code must be in Swift 3.
  * Download and parse the JSON found at this URL:http://jsonplaceholder.typ icode.com/photos
- * Display the images found at the `thumbnailUrl` key for each node in the JSON, in either a UITableView or UICollectionView.
- *  When tapped, display the image found at the `url` key in a detail view for each item in the UITableView or UICollectionView.
- *  Write unit tests where appropriate.
- *  Add the ability for the user to pull to refresh your initial list view.
+ * Display the images found at the `thumbnailUrl` key for each node in the JSON, in a UITableView.
+ * When tapped, display the image found at the `url` key in a detail view for each item in UITableView.
+ * Write unit tests where appropriate.
+ * Add the ability for the user to pull to refresh your initial list view.
 
 
 ### Architecture:
